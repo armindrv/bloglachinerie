@@ -1,0 +1,17 @@
+{
+  "name": "projet-web-cesi",
+  "homepage": "https://github.com/armin-devic/PIXEL-template",
+  "authors": [
+    "armin-devic <armin.devic@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
