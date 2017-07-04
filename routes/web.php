@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('getCategoriesBlog', 'CategorieController@getCategoriesBlog');
+Route::get('/categories', 'CategorieController@getCategoriesBlog');
