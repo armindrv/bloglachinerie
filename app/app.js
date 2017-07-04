@@ -1,3 +1,4 @@
 var app = angular.module('chineurs', [
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
 ]);

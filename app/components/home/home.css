@@ -1,0 +1,25 @@
+.carousel-container{
+    height: 350px;
+    margin-top: 50px;
+}
+
+.carousel-control {
+    background: transparent !important;
+    background-image: none!important;
+}
+
+.carousel-indicators {
+    visibility: hidden;
+}
+
+
+#home-slide {
+    height: 400px;
+}
+
+@media (max-width: 700px) {
+
+#home-slide {
+    height: 300px;
+}
+

@@ -35,27 +35,33 @@
               <li ng-repeat="item in menu.sceneItems"><a href="#">{{item.lib}}</a></li>
             </ul>
           </li>
-          <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3"><a href="#">Label</a></li>
+          <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3"><a ui-sref=".blog">Label</a></li>
           <li ng-class="{active:selectedLink == 4}" ng-click="selectedLink = 4"><a href="#">Artistes</a></li>
           <li ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5"><a href="#">Digging</a></li>
-          <li ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5"><a href="#">Digging</a></li>
+          <li ng-class="{active:selectedLink == 6}" ng-click="selectedLink = 6"><a href="#">Shop</a></li>
         </ul>
       </div>
 
   </nav>
 
 
-<div style="height: 305px">
-    <div uib-carousel active="active" interval="12">
-      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-        <img ng-src="{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-          <h4>Slide {{slide.id}}</h4>
-          <p>{{slide.text}}</p>
-        </div>
+<!-- <div style="height: 305px">
+  <div uib-carousel active="active" interval="12">
+    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+      <img ng-src="{{slide.image}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <h4>Slide {{slide.id}}</h4>
+        <p>{{slide.text}}</p>
       </div>
     </div>
   </div>
+</div>
+ -->
+
+  <div class="row">
+    <div ui-view class="col-xs-12 mainviewContainer"></div>
+  </div>
+
 
 
 </div>

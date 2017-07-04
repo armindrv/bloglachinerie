@@ -1,10 +1,14 @@
 angular
     .module('chineurs')
-    .factory('menuService',menuService);
+    .factory('menuService',menuService)
+    .factory('homeService',homeService)
+    .factory('blogService',blogService);
+
 
 function menuService(){
-
     var menuService = {};
+
+    menuService.test = "menu service test";
 
     menuService.getCategoriesBlog = function(){
         var categories = {
@@ -56,3 +60,16 @@ function menuService(){
 
     return menuService;
 };
+
+function homeService(){
+    var homeService = {};
+    homeService.test = "homeservice";
+    return homeService;
+};
+
+function blogService(){
+    var blogService = {};
+    blogService.test = "blog service is working!";
+    return blogService;
+};
+

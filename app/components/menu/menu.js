@@ -8,10 +8,7 @@ function menuCtrl(menuService) {
 
     var menu = this;
 
-
+    console.log(menuService.test);
     menu.blogItems = menuService.getCategoriesBlog();
-
-    console.log(menu.blogItems);
     menu.sceneItems  = menuService.getCategoriesScene();
-    menu.title = "this is menu!"
 }

@@ -1,0 +1,15 @@
+<div class="carousel-container">
+
+
+  <div uib-carousel>
+    <div uib-slide active="0" ng-repeat="slide in home.slides track by $index"
+    index="$index"
+    interval="1"
+    no-wrap="false">
+      <img ng-src="{{slide.image}}" id="home-slide">
+    </div>
+  </div>
+
+
+
+</div>
