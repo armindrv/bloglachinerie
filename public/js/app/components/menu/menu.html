@@ -1,0 +1,67 @@
+<div class="container">
+
+  <nav class="navbar navbar-default">
+
+      <a href="#" class="pull-left navbar-logo"><img src="res/img/logo.jpg"></a>
+      <div class="row logo-container">
+        <div class="col-sm-12">
+          <img src="res/img/logo.jpg">
+        </div>
+      </div>
+      <!-- header -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+
+
+      <!-- navbar content -->
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav" ng-init="">
+          <li class="dropdown" ng-class="{active:selectedLink == 1}" ng-click="selectedLink = 1">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li ng-repeat="item in menu.blogItems"><a href="#">{{item.lib}}</a></li>
+            </ul>
+          </li>
+          <li class="dropdown" ng-class="{active:selectedLink == 2}" ng-click="selectedLink = 2">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scène locale<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li ng-repeat="item in menu.sceneItems"><a href="#">{{item.lib}}</a></li>
+            </ul>
+          </li>
+          <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3"><a ui-sref=".blog">Label</a></li>
+          <li ng-class="{active:selectedLink == 4}" ng-click="selectedLink = 4"><a href="#">Artistes</a></li>
+          <li ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5"><a href="#">Digging</a></li>
+          <li ng-class="{active:selectedLink == 6}" ng-click="selectedLink = 6"><a href="#">Shop</a></li>
+        </ul>
+      </div>
+
+  </nav>
+
+
+<!-- <div style="height: 305px">
+  <div uib-carousel active="active" interval="12">
+    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+      <img ng-src="{{slide.image}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <h4>Slide {{slide.id}}</h4>
+        <p>{{slide.text}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+
+  <div class="row">
+    <div ui-view class="col-xs-12 mainviewContainer"></div>
+  </div>
+
+
+
+</div>
