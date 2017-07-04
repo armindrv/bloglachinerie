@@ -6,11 +6,13 @@ angular
 
 
 function menuService(){
+
     var menuService = {};
 
     menuService.test = "menu service test";
 
     menuService.getCategoriesBlog = function(){
+
         var categories = {
             "hiphop" : {
                 "lib" : "Hip Hop",
@@ -63,13 +65,75 @@ function menuService(){
 
 function homeService(){
     var homeService = {};
-    homeService.test = "homeservice";
+    homeService.getSlideArticles = function(){
+        return {
+            "s1" : {
+                "imageUrl" : 'res/slides/1.png',
+                "titre" : "Tellus Commodo Pharetra",
+                "id" : "1"
+            },
+            "s2" : {
+                "imageUrl" : 'res/slides/2.png',
+                "titre" : "Tellus Commodo Pharetra",
+                "id" : "2"
+            },
+            "s3" : {
+                "imageUrl" : 'res/slides/3.png',
+                "titre" : "Tellus Commodo Pharetra",
+                "id" : "3"
+            },
+            "s4" : {
+                "imageUrl" : 'res/slides/4.png',
+                "titre" : "Tellus Commodo Pharetra",
+                "id" : "4"
+            },
+            "s5" : {
+                "imageUrl" : 'res/slides/5.png',
+                "titre" : "Tellus Commodo Pharetra",
+                "id" : "5"
+            },
+        }
+    }
+
+    homeService.getPreviewArticlesRecents = function(){
+        return {
+            "ar1" : {
+                "titre" : "Tellus Commodo Pharetra",
+                "preview" : "Nulla vitae elit libero, a pharetra augue.",
+                "imageUrl" : "res/img/1.png",
+                "id" : "1"
+            },
+            "ar2" : {
+                "titre" : "Tellus Commodo Pharetra",
+                "preview" : "Nulla vitae elit libero, a pharetra augue.",
+                "imageUrl" : "res/img/2.png",
+                "id" : "2"
+            },
+            "ar3" : {
+                "titre" : "Tellus Commodo Pharetra",
+                "preview" : "Nulla vitae elit libero, a pharetra augue.",
+                "imageUrl" : "res/img/3.png",
+                "id" : "3"
+            },
+            "ar4" : {
+                "titre" : "Tellus Commodo Pharetra",
+                "preview" : "Nulla vitae elit libero, a pharetra augue.",
+                "imageUrl" : "res/img/4.png",
+                "id" : "4"
+            },
+            "ar5" : {
+                "titre" : "Tellus Commodo Pharetra",
+                "preview" : "Nulla vitae elit libero, a pharetra augue.",
+                "imageUrl" : "res/img/5.png",
+                "id" : "5"
+            },
+        }
+    }
     return homeService;
 };
 
 function blogService(){
     var blogService = {};
-    blogService.test = "blog service is working!";
     return blogService;
 };
 
