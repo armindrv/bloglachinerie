@@ -11,8 +11,15 @@ class CategorieController extends Controller
 {
     public function getCategoriesBlog(){
 
-    	$data = DB::table('categories')->select('id', 'libelle as lib')->get();
+    	$data = DB::table('categories')->where('isLocale', 0)->select('id', 'libelle as lib')->get();
 
     	return response()->json($data);
     }
+
+    public function getCategoriesLocale(){
+
+    	$data = DB::table('categories')->where('isLocale', 1)->select('id', 'libelle as lib')->get();
+
+    	return response()->json($data);
+    }    
 }

@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/categories', 'CategorieController@getCategoriesBlog');
+Route::get('/categoriesBlog', 'CategorieController@getCategoriesBlog');
+
+Route::get('/categoriesLocale', 'CategorieController@getCategoriesLocale');
+

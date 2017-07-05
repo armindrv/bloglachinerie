@@ -18,6 +18,8 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
          
             $table->string('libelle');
+
+            $table->boolean('isLocale');
          
             $table->timestamps();
         
