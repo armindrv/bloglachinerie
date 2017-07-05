@@ -1,6 +1,7 @@
 .carousel-container{
     height: 350px;
     margin-top: 50px;
+    margin-bottom: 150px;
 }
 
 .carousel-control {
@@ -19,7 +20,63 @@
 
 @media (max-width: 700px) {
 
-#home-slide {
-    height: 300px;
+    #home-slide {
+        height: 300px;
+    }
+
+    .carousel-container {
+        margin-bottom: 30px;
+    }
+
+}
+
+.header-container {
+    text-align: center;
+}
+
+.header-container h2 {
+    font-weight: 300;
+    color: #333;
+}
+
+
+.header-container .text-underline {
+    height: 1px;
+    width: 210px;
+    background-color: #333;
+    text-align: center;
+    margin: auto;
+}
+
+.recent-articles-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.recent-articles-container .card {
+    margin-bottom: 30px;
+}
+
+.recent-articles-container .card img{
+    height: 200px;
+    margin: auto;
+}
+
+
+.card {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  margin: auto;
+  position: relative;
+  text-align: left;
+}
+
+.card:hover {
+  box-shadow: 0 5px 7px rgba(0,0,0,0), 0 5px 5px rgba(0,0,0,0.2);
 }
 

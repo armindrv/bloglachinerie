@@ -10,6 +10,12 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             templateUrl : 'public/js/app/components/menu/menu.html',
             controller : 'menuCtrl as menu',
             resolve: {
+                sceneCategories : function(menuService){
+                    return  menuService.getCategoriesScene()
+                    .then(function(response){
+                        return response.data;
+                    });
+                },
                 blogCategories : function(menuService){
                     return menuService.getCategoriesBlog()
                     .then(function(response){

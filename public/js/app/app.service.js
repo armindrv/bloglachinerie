@@ -12,29 +12,11 @@ function menuService($http){
     menuService.test = "menu service test";
 
     menuService.getCategoriesBlog = function(){
-        return $http.get("categories");
+        return $http.get("categoriesBlog");
     }
 
     menuService.getCategoriesScene = function(){
-        var categories = {
-            "Lyon" : {
-                "lib" : "Lyon",
-                "id" : 1
-            },
-            "Paris" : {
-                "lib" : "Paris",
-                "id" : 2
-            },
-            "Marseille" : {
-                "lib" : "Marseille",
-                "id" : 3
-            },
-            "Toulouse" : {
-                "lib" : "Toulouse",
-                "id" : 4
-            }
-        };
-        return  categories;
+        return $http.get("categoriesLocale");
     }
 
     return menuService;

@@ -3,12 +3,13 @@ angular
     .module('chineurs')
     .controller('menuCtrl', menuCtrl);
 
-menuCtrl.$inject = ['menuService'];
-function menuCtrl(menuService) {
+menuCtrl.$inject = ['menuService','blogCategories','sceneCategories'];
+function menuCtrl(menuService,blogCategories,sceneCategories) {
 
     var menu = this;
 
-    console.log(menuService.test);
-    menu.blogItems = menuService.getCategoriesBlog();
-    menu.sceneItems  = menuService.getCategoriesScene();
+    console.log(blogCategories);
+
+    menu.blogItems = blogCategories;
+    menu.sceneItems  = sceneCategories;
 }
