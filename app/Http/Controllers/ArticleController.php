@@ -11,15 +11,30 @@ class ArticleController extends Controller
 {
     public function getFirstTenArticles(){
 
-        $data = DB::table('articles')
-            ->join('sections', 'articles.id', 'sections.article_id')
-            ->where('sections.typeSection_id', 2)
-            ->orderBy('articles.id', 'desc')
-            ->select('articles.id as id', 'articles.title as titre', 'articles.description', 'sections.content as imageUrl')
-            ->distinct()
-            ->limit(10)
-            ->get();
+    	$data = DB::table('articles')
+    		->join('sections', 'articles.id', 'sections.article_id')
+    		->where('sections.typeSection_id', 2)
+    		->orderBy('articles.id', 'desc')
+    		->select('articles.id as id', 'articles.title as titre', 'articles.description', 'sections.content as imageUrl')
+    		->distinct()
+    		->limit(10)
+    		->get();
 
-        return response()->json($data);
+    	return response()->json($data);
+    }
+
+    public function getArticle($article_id){
+
+    	$data = DB::table('articles')
+    		->join('sections', 'articles.id', 'sections.article_id')
+    		->where('articles.id', $article_id)
+    		->select('articles.id as id', 'articles.title as titre', 'sections.content as content')
+    		->distinct()
+    		->get();
+    		
+    	//$filtered = $data->collapse();
+    	dd($data);
+    	//dd($data);
+    	return response()->json($data);
     }
 }
