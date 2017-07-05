@@ -7,10 +7,17 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
     $stateProvider
         .state('menu',{
             url : '/menu',
-            templateUrl : '/app/components/menu/menu.html',
+            templateUrl : 'public/js/app/components/menu/menu.html',
             controller : 'menuCtrl as menu',
             resolve: {
+                blogCategories : function(menuService){
+                    return menuService.getCategoriesBlog()
+                    .then(function(response){
+                        return response.data;
+                    });
+                },
                 menuService : function(menuService){
+                    menuService.getCategoriesBlog()
                     return menuService;
                 }
             }
@@ -18,7 +25,7 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
 
         .state('menu.home',{
             url : '/home',
-            templateUrl : '/app/components/home/home.html',
+            templateUrl : 'public/js/app/components/home/home.html',
             controller : 'homeCtrl as home',
             resolve: {
                 homeService : function(homeService){
@@ -30,7 +37,7 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
 
         .state('menu.blog',{
             url : '/blog',
-            templateUrl : '/app/components/blog/blog.html',
+            templateUrl : 'public/js/app/components/blog/blog.html',
             controller : 'blogCtrl as blog',
             resolve: {
                 blogService : function(blogService){
