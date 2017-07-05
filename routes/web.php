@@ -19,3 +19,4 @@ Route::get('/categoriesBlog', 'CategorieController@getCategoriesBlog');
 
 Route::get('/categoriesLocale', 'CategorieController@getCategoriesLocale');
 
+Route::get('/firstTenArticles', 'ArticleController@getFirstTenArticles');

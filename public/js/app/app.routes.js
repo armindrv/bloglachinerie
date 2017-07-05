@@ -10,6 +10,12 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             templateUrl : 'public/js/app/components/menu/menu.html',
             controller : 'menuCtrl as menu',
             resolve: {
+                sceneCategories : function(menuService){
+                    return  menuService.getCategoriesScene()
+                    .then(function(response){
+                        return response.data;
+                    });
+                },
                 blogCategories : function(menuService){
                     return menuService.getCategoriesBlog()
                     .then(function(response){
@@ -30,6 +36,13 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             resolve: {
                 homeService : function(homeService){
                     return homeService;
+                },
+                tenArticles : function(homeService){
+                    return homeService.getArticles()
+                    .then(function(response){
+                        console.log(response);
+                        return response.data;
+                    });
                 }
             }
         })
@@ -44,6 +57,20 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
                     return blogService;
                 }
             }
+        })
+
+        .state('menu.article',{
+            url : '/article/:id',
+            templateUrl : 'public/js/app/components/article/article.html',
+            controller : 'articleCtrl as article',
+            // resolve: {
+            //     articleData: function(articleService, $stateParams) {
+            //         return articleService.getArticle($stateParams.id)
+            //         .then(function(response){
+            //             return response.data;
+            //         });
+            //     }
+            //  }
         })
 
 

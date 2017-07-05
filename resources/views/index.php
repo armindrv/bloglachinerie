@@ -28,6 +28,7 @@
         <script src="public/js/app/components/menu/menu.js"></script>
         <script src="public/js/app/components/blog/blog.js"></script>
         <script src="public/js/app/components/home/home.js"></script>
+        <script src="public/js/app/components/article/article.js"></script>
 
 
     </head>
