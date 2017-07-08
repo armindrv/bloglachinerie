@@ -25,12 +25,31 @@ class ArticleController extends Controller
 
     public function getArticle($article_id){
 
+    	
+    	// Récupère le titre et la pochette du disque
     	$data = DB::table('articles')
+    		->where('articles.id', $article_id)
+    		->select('articles.id as id', 'articles.title as titre')
+    		->get();
+
+    	$data = $data->toArray();
+
+
+    	// Récupère les tracks et les numéros de track du disque
+    	$data2 = DB::table('articles')
     		->join('sections', 'articles.id', 'sections.article_id')
     		->where('articles.id', $article_id)
-    		->select('articles.id as id', 'articles.title as titre', 'sections.content as content')
+    		->select('sections.content as content')
     		->distinct()
     		->get();
+
+	     $data2 = $data2->toArray();
+
+
+	     // Fusion des deux tableaux
+	     $data = array_merge($data, $data2);
+
+
     		
     	return response()->json($data);
     }
