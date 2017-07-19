@@ -16,8 +16,7 @@ function authService($http){
 
 
     authService.login = function(email,password){
-        console.log(email);
-        console.log(password);
+        $http.post("login/",{"email" : email, "password" : password});
     }
 
     return authService;

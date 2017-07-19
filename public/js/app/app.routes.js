@@ -109,7 +109,7 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
         });
 
 
-    $urlRouterProvider.otherwise('/menu/home');
+    $urlRouterProvider.otherwise('/admin');
 }
 
 
