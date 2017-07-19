@@ -1,0 +1,17 @@
+<div class="login-container">
+
+    <h3>Connexion</h3>
+
+    <div class="form-group">
+      <label for="usr">E-mail</label>
+      <input type="text" class="form-control" id="usr" ng-model="loginData.email">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Mot de passe</label>
+      <input type="password" class="form-control" id="pwd" ng-model="loginData.password">
+    </div>
+
+    <button type="button" class="btn btn-primary" ng-click="login.auth(loginData.email,loginData.password)">Se connecter</button>
+
+</div>

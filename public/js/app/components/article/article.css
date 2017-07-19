@@ -1,0 +1,50 @@
+.article-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.article-title div h2{
+    text-align: center;
+    font-weight: 300;
+    color: #333;
+}
+
+.text-underline {
+  height: 1px;
+  width: 210px;
+  background-color: #333;
+  text-align: center;
+  margin: auto;
+}
+
+.article-header-image div {
+    text-align: center;
+}
+
+.article-header-image div img{
+    width: 80%;
+    display: inline-block;
+}
+
+.article-content {
+    margin: 50px 100px 0 100px;
+}
+
+.article-paragrtaph {
+    color: #333;
+    font-size: 15px;
+}
+
+@media (max-width: 700px) {
+    .article-header-image div img{
+        width: 100%;
+    }
+
+    .article-header-image div {
+        padding: 0 0 0 0;
+    }
+
+    .article-content {
+        margin: 50px 0 0 0;
+    }
+}

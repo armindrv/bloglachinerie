@@ -2,7 +2,7 @@
 
   <nav class="navbar navbar-default">
 
-      <a href="#" class="pull-left navbar-logo"><img src="public/js/res/img/logo.jpg"></a>
+      <a ui-sref=".home" class="pull-left navbar-logo"><img src="public/js/res/img/logo.jpg""></a>
       <div class="row logo-container">
         <div class="col-sm-12">
           <img src="public/js/res/img/logo.jpg">
@@ -24,18 +24,18 @@
       <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav" ng-init="">
           <li class="dropdown" ng-class="{active:selectedLink == 1}" ng-click="selectedLink = 1">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li ng-repeat="item in menu.blogItems"><a href="#">{{item.lib}}</a></li>
+              <li ng-repeat="item in menu.blogItems"><a ng-click="menu.goToCategorie(item.id,item.lib)">{{item.lib}}</a></li>
             </ul>
           </li>
           <li class="dropdown" ng-class="{active:selectedLink == 2}" ng-click="selectedLink = 2">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scène locale<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li ng-repeat="item in menu.sceneItems"><a href="#">{{item.lib}}</a></li>
+              <li ng-repeat="item in menu.sceneItems" ><a ng-click="menu.goToCategorie(item.id,item.lib)">{{item.lib}}</a></li>
             </ul>
           </li>
-          <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3"><a ui-sref=".blog">Label</a></li>
+          <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3"><a >Label</a></li>
           <li ng-class="{active:selectedLink == 4}" ng-click="selectedLink = 4"><a href="#">Artistes</a></li>
           <li ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5"><a href="#">Digging</a></li>
           <li ng-class="{active:selectedLink == 6}" ng-click="selectedLink = 6"><a href="#">Shop</a></li>

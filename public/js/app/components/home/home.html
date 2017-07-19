@@ -4,10 +4,9 @@
         <div uib-slide active="1" ng-repeat="slide in home.slides track by $index"
         index="$index"
         interval="1"
-        no-wrap="false">
-          <a ui-sref=".article({id: article.id})">
+        no-wrap="false"
+        ng-click="home.goToArticle(slide.id)">
             <img ng-src="{{slide.imageUrl}}" id="home-slide">
-          </a>
         </div>
       </div>
     </div>
@@ -23,7 +22,7 @@
         <div class="col-xl-6 col-lg-6 col-md-6 col-xs-12"
         ng-repeat="article in home.articles">
             <div class="card"
-            ui-sref=".article({id: article.id})">
+            ng-click="home.goToArticle(article.id)">
               <img class="card-img-top" ng-src="{{article.imageUrl}}">
               <div class="card-block">
                 <h4 class="card-title">{{article.titre}}</h4>

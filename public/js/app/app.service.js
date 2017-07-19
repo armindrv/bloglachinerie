@@ -3,16 +3,43 @@ angular
     .factory('menuService',menuService)
     .factory('homeService',homeService)
     .factory('articleService',articleService)
-    .factory('blogService',blogService);
+    .factory('categorieService',categorieService)
+    .factory('blogService',blogService)
+    .factory('authService',authService);
 
+
+authService.$inject = ['$http'];
+function authService($http){
+    var authService = {};
+
+    authService.logged = false;
+
+
+    authService.login = function(email,password){
+        console.log(email);
+        console.log(password);
+    }
+
+    return authService;
+}
+
+categorieService.$inject = ['$http'];
+function categorieService($http){
+    var categorieService = {};
+
+    categorieService.getArticlesByCategorie = function(idCategorie){
+        return $http.get("categorie/"+idCategorie);
+    }
+
+    return categorieService;
+}
 
 articleService.$inject = ['$http'];
 function articleService($http){
     var articleService = {};
 
     articleService.getArticle = function(id){
-        //get article data
-        return null;
+        return $http.get("article/"+id);
     }
 
     return articleService;
@@ -44,35 +71,6 @@ function homeService($http){
     homeService.getArticles = function(){
         return $http.get("firstTenArticles");
     }
-    // homeService.getSlideArticles = function(){
-    //     return {
-    //         "s1" : {
-    //             "imageUrl" : 'public/js/res/slides/1.png',
-    //             "titre" : "Tellus Commodo Pharetra",
-    //             "id" : "1"
-    //         },
-    //         "s2" : {
-    //             "imageUrl" : 'public/js/res/slides/2.png',
-    //             "titre" : "Tellus Commodo Pharetra",
-    //             "id" : "2"
-    //         },
-    //         "s3" : {
-    //             "imageUrl" : 'public/js/res/slides/3.png',
-    //             "titre" : "Tellus Commodo Pharetra",
-    //             "id" : "3"
-    //         },
-    //         "s4" : {
-    //             "imageUrl" : 'public/js/res/slides/4.png',
-    //             "titre" : "Tellus Commodo Pharetra",
-    //             "id" : "4"
-    //         },
-    //         "s5" : {
-    //             "imageUrl" : 'public/js/res/slides/5.png',
-    //             "titre" : "Tellus Commodo Pharetra",
-    //             "id" : "5"
-    //         },
-    //     }
-    // }
 
     homeService.getPreviewArticlesRecents = function(){
         return {

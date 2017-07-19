@@ -1,1 +1,18 @@
-ARTICLE
+<div class="row article-title">
+    <div class="col-xs-12">
+        <h2>{{article.articleData.titre}}</h2>
+        <div class="text-underline"></div>
+    </div>
+</div>
+
+<div class="row article-header-image">
+    <div class="col-xs-12">
+        <img ng-src="{{article.articleData.imageUrl}}" class="col">
+    </div>
+</div>
+
+<div class="row article-content">
+    <div class="col-xs-12">
+        <p class="article-paragrtaph">{{article.articleData.content}}</p>
+    </div>
+</div>

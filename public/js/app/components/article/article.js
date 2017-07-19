@@ -7,6 +7,5 @@ articleCtrl.$inject = ['articleData'];
 function articleCtrl(articleData) {
 
     var article = this;
-
-    console.log(articleData);
+    article.articleData = articleData;
 }

@@ -59,19 +59,54 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             }
         })
 
+        .state('menu.categorie',{
+            url : '/categorie/:id:lib',
+            templateUrl : 'public/js/app/components/categorie/categorie.html',
+            controller : 'categorieCtrl as categorie',
+            resolve: {
+                articles : function(categorieService,$stateParams){
+                    return categorieService.getArticlesByCategorie($stateParams.id)
+                    .then(function(response){
+                        return response.data;
+                    });
+                }
+            }
+        })
+
         .state('menu.article',{
             url : '/article/:id',
             templateUrl : 'public/js/app/components/article/article.html',
             controller : 'articleCtrl as article',
-            // resolve: {
-            //     articleData: function(articleService, $stateParams) {
-            //         return articleService.getArticle($stateParams.id)
-            //         .then(function(response){
-            //             return response.data;
-            //         });
-            //     }
-            //  }
+            resolve: {
+                articleData: function(articleService, $stateParams) {
+                    return articleService.getArticle($stateParams.id)
+                    .then(function(response){
+                        var res = {
+                            "content" : response.data[0].content,
+                            "titre" : response.data[0].titre,
+                            "imageUrl" : response.data[1].content,
+                            "id" : response.data[0].id
+                        }
+                        return res;
+                    });
+                }
+             }
         })
+
+
+        .state('admin',{
+            url : '/admin',
+            templateUrl : 'public/js/app/components/login/login.html',
+            controller : 'loginCtrl as login',
+            resolve: {
+                auth: function(authService,$state){
+                    if(authService.logged){
+                        // todo : rediriger vers page d'admin si il est logué
+                        console.log("logged");
+                    }
+                }
+            }
+        });
 
 
     $urlRouterProvider.otherwise('/menu/home');
