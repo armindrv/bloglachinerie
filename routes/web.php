@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-/*
-	Categories
-*/
+
+//#################################	  CATEGORIES   ###########################################
+
 
 // Récupère toutes les catégories de la partie blog
 
@@ -27,9 +27,9 @@ Route::get('/categoriesBlog', 'CategorieController@getCategoriesBlog');
 
 Route::get('/categoriesLocale', 'CategorieController@getCategoriesLocale');
 
-/*
-	Articles
-*/
+
+//#################################	  ARTICLES   ###########################################
+
 
 // Récupère les dix articles les plus récents
 
@@ -43,9 +43,7 @@ Route::get('/article/{article_id}', 'ArticleController@getArticle');
 
 Route::get('/categorie/{categorie_id}', 'ArticleController@getArticlesFromCategorie');
 
-/* 
-	Disques
-*/
+//#################################	  DISQUES   ###########################################
 
 // Route vers une fonction pour récupérer tous les disques de la base
 
@@ -54,4 +52,13 @@ Route::get('/disques/all', 'DisqueController@getAllDisques');
 // Route vers une fonction pour récupérer un disque en particulier
 
 Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
+
+
+//#################################	  USERS   ###########################################
+
+ Auth::routes();
+
+ Route::get('/login', 'LoginController@authenticate');
+
+ Route::post('/login', 'LoginController@authenticate');
 
