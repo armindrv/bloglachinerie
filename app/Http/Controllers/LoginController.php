@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -33,20 +35,29 @@ class LoginController extends Controller
      * Create a new controller instance.
      *
      * @return void
-     
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }*/
 
-    public function authenticate(Request $request)
-    {
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+    public function login()
+    {  
+        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             // Authentication passed...
-            echo "yes";
-            return redirect()->intended('dashboard');
+
+            $id = Auth::id();
+
+            $data = DB::table('users')
+                ->join('categorie_users', 'users.id', 'categorie_users.user_id')
+                ->where('categorie_users.user_id', $id)
+                ->select('categorie_users.categorie_id', 'categorie_users.user_id')
+                ->get();
+
+            return response()->json($data);
+
         } else {
-            echo "no";
+            return response()->json(false);
         }
     }
 
