@@ -8,15 +8,34 @@ angular
     .factory('authService',authService);
 
 
-authService.$inject = ['$http'];
-function authService($http){
+authService.$inject = ['$http','$state'];
+function authService($http,$state){
     var authService = {};
 
     authService.logged = false;
 
+    authService.userData = null;
+
 
     authService.login = function(email,password){
-        $http.post("login/",{"email" : email, "password" : password});
+        var FormData = {
+            'email' : email,
+            'password' : password
+        };
+        $http({
+            method: 'POST',
+            url: './login',
+            data: FormData,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function (response) {
+            if(response.data){
+                authService.logged = true;
+                authService.userData = response.data[0];
+                $state.go('menu.home')
+            }else{
+                console.log("not logged");
+            }
+        });
     }
 
     return authService;

@@ -34,6 +34,9 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             templateUrl : 'public/js/app/components/home/home.html',
             controller : 'homeCtrl as home',
             resolve: {
+                authService : function(authService){
+                    return authService;
+                },
                 homeService : function(homeService){
                     return homeService;
                 },

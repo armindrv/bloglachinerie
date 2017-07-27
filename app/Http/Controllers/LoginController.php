@@ -42,8 +42,9 @@ class LoginController extends Controller
     }*/
 
     public function login()
-    {  
-        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+    {
+        $req = json_decode(file_get_contents("php://input"));
+        if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
             // Authentication passed...
 
             $id = Auth::id();
