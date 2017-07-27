@@ -52,9 +52,9 @@ class LoginController extends Controller
             $data = DB::table('users')
                 ->join('categorie_users', 'users.id', 'categorie_users.user_id')
                 ->where('categorie_users.user_id', $id)
-                ->select('categorie_users.categorie_id', 'categorie_users.user_id')
+                ->select('categorie_users.categorie_id', 'categorie_users.user_id', 'users.role_id')
                 ->get();
-
+            //dd($data);
             return response()->json($data);
 
         } else {
