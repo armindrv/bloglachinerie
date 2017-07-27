@@ -13,16 +13,15 @@
 
 
 -- Export de la structure de la base pour lachinerie
-DROP DATABASE IF EXISTS `lachinerie`;
 CREATE DATABASE IF NOT EXISTS `lachinerie` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `lachinerie`;
 
 -- Export de la structure de la table lachinerie. articles
-DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `statut` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -30,15 +29,14 @@ CREATE TABLE IF NOT EXISTS `articles` (
 
 -- Export de données de la table lachinerie.articles : ~4 rows (environ)
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-	(1, 'CHOC : Ben Klock n\'a jamais su mixer !', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', '2017-06-24 22:53:56', '2017-06-24 22:53:57'),
-	(2, 'Quelle platine pour mon pitichat ?', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', '2017-06-24 22:54:16', '2017-06-24 22:54:16'),
-	(3, 'Kerry Chandler de retour à Lyon !', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', '2017-06-24 22:54:49', '2017-06-24 22:54:49'),
-	(4, 'Grosse sortie sur Yoyaku', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', '2017-06-24 22:55:14', '2017-06-24 22:55:14');
+INSERT INTO `articles` (`id`, `title`, `description`, `statut`, `created_at`, `updated_at`) VALUES
+	(1, 'CHOC : Ben Klock n\'a jamais su mixer !', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', NULL, '2017-06-24 22:53:56', '2017-06-24 22:53:57'),
+	(2, 'Quelle platine pour mon pitichat ?', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', NULL, '2017-06-24 22:54:16', '2017-06-24 22:54:16'),
+	(3, 'Kerry Chandler de retour à Lyon !', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', NULL, '2017-06-24 22:54:49', '2017-06-24 22:54:49'),
+	(4, 'Grosse sortie sur Yoyaku', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', NULL, '2017-06-24 22:55:14', '2017-06-24 22:55:14');
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. article_categories
-DROP TABLE IF EXISTS `article_categories`;
 CREATE TABLE IF NOT EXISTS `article_categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `categorie_id` int(10) unsigned NOT NULL,
@@ -64,7 +62,6 @@ INSERT INTO `article_categories` (`id`, `categorie_id`, `article_id`, `created_a
 /*!40000 ALTER TABLE `article_categories` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. artistes
-DROP TABLE IF EXISTS `artistes`;
 CREATE TABLE IF NOT EXISTS `artistes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -81,7 +78,6 @@ INSERT INTO `artistes` (`id`, `name`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `artistes` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. categories
-DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `libelle` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -104,7 +100,6 @@ INSERT INTO `categories` (`id`, `libelle`, `isLocale`, `created_at`, `updated_at
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. categorie_users
-DROP TABLE IF EXISTS `categorie_users`;
 CREATE TABLE IF NOT EXISTS `categorie_users` (
   `user_id` int(10) unsigned NOT NULL,
   `categorie_id` int(10) unsigned NOT NULL,
@@ -116,14 +111,15 @@ CREATE TABLE IF NOT EXISTS `categorie_users` (
   CONSTRAINT `categorie_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.categorie_users : ~1 rows (environ)
+-- Export de données de la table lachinerie.categorie_users : ~3 rows (environ)
 /*!40000 ALTER TABLE `categorie_users` DISABLE KEYS */;
 INSERT INTO `categorie_users` (`user_id`, `categorie_id`, `created_at`, `updated_at`) VALUES
-	(2, 2, '2017-07-22 16:33:13', '2017-07-22 16:33:13');
+	(2, 2, '2017-07-22 16:33:13', '2017-07-22 16:33:13'),
+	(2, 3, '2017-07-27 12:30:08', '2017-07-27 12:30:09'),
+	(2, 4, '2017-07-27 12:29:55', '2017-07-27 12:29:56');
 /*!40000 ALTER TABLE `categorie_users` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. disques
-DROP TABLE IF EXISTS `disques`;
 CREATE TABLE IF NOT EXISTS `disques` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `disque_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -144,7 +140,6 @@ INSERT INTO `disques` (`id`, `disque_title`, `label_id`, `image_url`, `created_a
 /*!40000 ALTER TABLE `disques` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. disque_titres
-DROP TABLE IF EXISTS `disque_titres`;
 CREATE TABLE IF NOT EXISTS `disque_titres` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `track_number` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -173,7 +168,6 @@ INSERT INTO `disque_titres` (`id`, `track_number`, `disque_id`, `titre_id`, `cre
 /*!40000 ALTER TABLE `disque_titres` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. droits
-DROP TABLE IF EXISTS `droits`;
 CREATE TABLE IF NOT EXISTS `droits` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `libelle` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -193,7 +187,6 @@ INSERT INTO `droits` (`id`, `libelle`, `code`, `created_at`, `updated_at`) VALUE
 /*!40000 ALTER TABLE `droits` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. droits_roles
-DROP TABLE IF EXISTS `droits_roles`;
 CREATE TABLE IF NOT EXISTS `droits_roles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `role_id` int(10) unsigned NOT NULL,
@@ -219,7 +212,6 @@ INSERT INTO `droits_roles` (`id`, `role_id`, `droit_id`, `created_at`, `updated_
 /*!40000 ALTER TABLE `droits_roles` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. labels
-DROP TABLE IF EXISTS `labels`;
 CREATE TABLE IF NOT EXISTS `labels` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -228,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `labels` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.labels : ~5 rows (environ)
+-- Export de données de la table lachinerie.labels : ~4 rows (environ)
 /*!40000 ALTER TABLE `labels` DISABLE KEYS */;
 INSERT INTO `labels` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'Chineurs de House', '2017-06-25 00:38:03', '2017-06-25 00:38:03'),
@@ -239,7 +231,6 @@ INSERT INTO `labels` (`id`, `name`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `labels` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. migrations
-DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -270,7 +261,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. password_resets
-DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -283,7 +273,6 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. roles
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `libelle` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -303,7 +292,6 @@ INSERT INTO `roles` (`id`, `libelle`, `code`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. sections
-DROP TABLE IF EXISTS `sections`;
 CREATE TABLE IF NOT EXISTS `sections` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -318,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `sections` (
   CONSTRAINT `sections_typesection_id_foreign` FOREIGN KEY (`typeSection_id`) REFERENCES `section_types` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.sections : ~8 rows (environ)
+-- Export de données de la table lachinerie.sections : ~7 rows (environ)
 /*!40000 ALTER TABLE `sections` DISABLE KEYS */;
 INSERT INTO `sections` (`id`, `content`, `article_id`, `typeSection_id`, `created_at`, `updated_at`) VALUES
 	(1, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?', 1, 1, '2017-07-05 11:46:29', '2017-07-05 11:46:30'),
@@ -332,7 +320,6 @@ INSERT INTO `sections` (`id`, `content`, `article_id`, `typeSection_id`, `create
 /*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. section_types
-DROP TABLE IF EXISTS `section_types`;
 CREATE TABLE IF NOT EXISTS `section_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `libelle` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -349,7 +336,6 @@ INSERT INTO `section_types` (`id`, `libelle`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `section_types` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. titres
-DROP TABLE IF EXISTS `titres`;
 CREATE TABLE IF NOT EXISTS `titres` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `track_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -372,7 +358,6 @@ INSERT INTO `titres` (`id`, `track_title`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `titres` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. titre_artistes
-DROP TABLE IF EXISTS `titre_artistes`;
 CREATE TABLE IF NOT EXISTS `titre_artistes` (
   `titre_id` int(10) unsigned NOT NULL,
   `artiste_id` int(10) unsigned NOT NULL,
@@ -398,7 +383,6 @@ INSERT INTO `titre_artistes` (`titre_id`, `artiste_id`, `created_at`, `updated_a
 /*!40000 ALTER TABLE `titre_artistes` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. users
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -418,8 +402,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Export de données de la table lachinerie.users : ~2 rows (environ)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `firstname`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'xNWiaYgWzd', 'MVkWprxm5i', 'Sg8W9wjIOs@gmail.com', '123456', 3, NULL, NULL, NULL),
-	(2, '4R2uKW8vG6', 'uARS9eR8jd', 'sCJLzW1JGv@gmail.com', '$2y$10$YEQzroU91wXh.PwxjgonjuyqgYDwF3H4XbmNBwP0EP8.rEuloFZ8W', 4, NULL, NULL, NULL);
+	(1, 'xNWiaYgWzd', 'MVkWprxm5i', 'test@gmail.com', '123456', 3, NULL, NULL, NULL),
+	(2, '4R2uKW8vG6', 'uARS9eR8jd', 'testt@gmail.com', '$2y$10$YEQzroU91wXh.PwxjgonjuyqgYDwF3H4XbmNBwP0EP8.rEuloFZ8W', 4, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

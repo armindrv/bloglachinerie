@@ -56,11 +56,11 @@ Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
 
 //#################################	  USERS   ###########################################
 
-/* Auth::routes();
-*/
-// Route::get('/login', 'LoginController@authenticate');
-
  Route::post('/login', 'LoginController@login');
 
  Route::get('/moderation_article/{user_id}', 'LoginController@getArticlesFromUser');
+
+ //#################################	USERS 	###########################################
+
+ Route::get('/label_list', 'LabelController@getLabels');
 

@@ -67,7 +67,7 @@ class LoginController extends Controller
             ->join('article_categories', 'categorie_users.categorie_id', 'article_categories.categorie_id')
             ->join('articles', 'article_categories.article_id', 'articles.id')
             ->where('users.id', $id)
-            ->select('articles.id', 'articles.title', 'categorie_users.categorie_id')
+            ->select('articles.id', 'articles.title', 'categorie_users.categorie_id', 'articles.statut')
             ->get();
 
             return response()->json($data);
