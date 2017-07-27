@@ -56,9 +56,9 @@ Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
 
 //#################################	  USERS   ###########################################
 
- Auth::routes();
+/* Auth::routes();
+*/
+// Route::get('/login', 'LoginController@authenticate');
 
- Route::get('/login', 'LoginController@authenticate');
-
- Route::post('/login', 'LoginController@authenticate');
+ Route::post('/login', 'LoginController@login');
 
