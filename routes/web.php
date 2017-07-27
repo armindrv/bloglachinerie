@@ -62,3 +62,5 @@ Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
 
  Route::post('/login', 'LoginController@login');
 
+ Route::get('/moderation_article/{user_id}', 'LoginController@getArticlesFromUser');
+

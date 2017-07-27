@@ -41,8 +41,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }*/
 
-    public function login()
-    {
+    public function login() {
         $req = json_decode(file_get_contents("php://input"));
         if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
             // Authentication passed...
@@ -60,6 +59,18 @@ class LoginController extends Controller
         } else {
             return response()->json(false);
         }
+    }
+
+    public function getArticlesFromUser($id) {
+        $data = DB::table('users')
+            ->join('categorie_users', 'users.id', 'categorie_users.user_id')
+            ->join('article_categories', 'categorie_users.categorie_id', 'article_categories.categorie_id')
+            ->join('articles', 'article_categories.article_id', 'articles.id')
+            ->where('users.id', $id)
+            ->select('articles.id', 'articles.title', 'categorie_users.categorie_id')
+            ->get();
+
+            return response()->json($data);
     }
 
 }
