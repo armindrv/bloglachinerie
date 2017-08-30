@@ -10,7 +10,7 @@ class LabelController extends Controller
 {
     public function getLabels() {
     	$data = DB::table('labels')
-    		->select('id', 'name')
+    		->select('id', 'name', 'img_url')
     		->get();
 
     	return response()->json($data);
