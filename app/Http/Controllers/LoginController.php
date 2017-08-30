@@ -82,7 +82,20 @@ class LoginController extends Controller
             $myarray[] = array("id"=>$art->id, "title"=>$art->title, "statut"=>$art->statut, "categorie_id"=>$arr);
 
         }
+        if(isset($myarray)){
             return response()->json($myarray);
+        } else {
+            return null;
+        }
+    }
+
+    public function updateArticleStatut() {
+        $req = json_decode(file_get_contents("php://input"));
+        $id = $req->idArticle;
+        $statut = $req->statut;
+        DB::table('articles')
+        ->where('articles.id', $id)
+        ->update(['statut' => $statut]);
     }
 
 }

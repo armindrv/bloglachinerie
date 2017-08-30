@@ -9,10 +9,10 @@ use App\Label;
 class LabelController extends Controller
 {
     public function getLabels() {
-        $data = DB::table('labels')
-            ->select('id', 'name')
-            ->get();
+    	$data = DB::table('labels')
+    		->select('id', 'name')
+    		->get();
 
-        return response()->json($data);
+    	return response()->json($data);
     }
 }

@@ -14,6 +14,7 @@ class ArticleController extends Controller
     	$data = DB::table('articles')
     		->join('sections', 'articles.id', 'sections.article_id')
     		->where('sections.typeSection_id', 2)
+            ->where('articles.statut', 1)
     		->orderBy('articles.id', 'desc')
     		->select('articles.id as id', 'articles.title as titre', 'articles.description', 'sections.content as imageUrl')
     		->distinct()
@@ -60,10 +61,15 @@ class ArticleController extends Controller
     		->join('article_categories', 'articles.id', 'article_categories.article_id')
     		->join('sections', 'articles.id', 'sections.article_id')
     		->where('article_categories.categorie_id', $categorie_id)
+            ->where('articles.statut', 1)
     		->where('sections.typeSection_id', 2)
     		->select('articles.id', 'articles.title as titre', 'articles.description', 'sections.content as imageUrl')
     		->get();
-
+            
     	return response()->json($data);
+    }
+
+    public function getArticlesForAdmin($cat_ids) {
+        
     }
 }
