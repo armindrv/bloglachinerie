@@ -14,9 +14,26 @@ function moderationService($http,$state){
 
     var moderationService = {};
 
+    //modifie le statut de l'article
+    moderationService.changeStatut = function(idArticle,statut){
+        var data = {
+            'idArticle' : idArticle,
+            'statut' : statut
+        };
+        $http({
+            method: 'POST',
+            url: './set_article_status',
+            data: data,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function (response) {
+            console.log(response);
+        });
+    }
+
     moderationService.getArticles = function(id){
         return $http.get("moderation_article/"+id);
     }
+
 
     return moderationService;
 

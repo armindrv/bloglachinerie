@@ -1,0 +1,22 @@
+<div class="row article-title">
+    <div class="col-xs-12">
+        <h2>{{articleModeration.articleData.titre}}</h2>
+        <div class="text-underline"></div>
+    </div>
+</div>
+
+<div class="row article-header-image">
+    <div class="col-xs-12">
+        <img ng-src="{{articleModeration.articleData.imageUrl}}" class="col">
+    </div>
+</div>
+
+<div class="row article-content">
+    <div class="col-xs-12">
+        <p class="article-paragrtaph">{{articleModeration.articleData.content}}</p>
+    </div>
+</div>
+
+
+<button ng-click="articleModeration.changeStatut(1)">Valider</button>
+<button ng-click="articleModeration.changeStatut(0)">Refuser</button>

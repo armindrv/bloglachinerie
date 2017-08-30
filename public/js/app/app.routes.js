@@ -88,9 +88,38 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
                     return articleService.getArticle($stateParams.id)
                     .then(function(response){
                         var res = {
-                            "content" : response.data[0].content,
+                            "content" : response.data[1].content,
                             "titre" : response.data[0].titre,
-                            "imageUrl" : response.data[1].content,
+                            "imageUrl" : response.data[2].content,
+                            "id" : response.data[0].id
+                        }
+                        return res;
+                    });
+                }
+             }
+        })
+
+        .state('menu.article-moderation',{
+            url : '/article-moderation/:id',
+            templateUrl : 'public/js/app/components/moderation/article-moderation/article-moderation.html',
+            controller : 'articleModerationCtrl as articleModeration',
+            resolve: {
+                // auth: function(authService,$state){
+                //     userId = authService.userData[0].user_id;
+                //     if(userId != 1 && userId != 2 && userId != 3){
+                //         $state.go('menu.home');
+                //     }
+                // },
+                moderation : function(moderationService){
+                    return moderationService;
+                },
+                articleData: function(articleService, $stateParams) {
+                    return articleService.getArticle($stateParams.id)
+                    .then(function(response){
+                        var res = {
+                            "content" : response.data[1].content,
+                            "titre" : response.data[0].titre,
+                            "imageUrl" : response.data[2].content,
                             "id" : response.data[0].id
                         }
                         return res;
@@ -110,8 +139,11 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
                 //         $state.go('menu.home');
                 //     }
                 // },
+                moderation : function(moderationService){
+                    return moderationService;
+                },
                 articles : function(moderationService,authService){
-                    userId = 3//authService.userData[0].user_id;
+                    userId = 2//authService.userData[0].user_id;
                     return moderationService.getArticles(userId)
                     .then(function(response){
                         return response.data;
