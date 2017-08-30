@@ -41,9 +41,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }*/
 
-    public function login()
-    {  
-        if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
+    public function login() {
+        $req = json_decode(file_get_contents("php://input"));
+        if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
             // Authentication passed...
 
             $id = Auth::id();
@@ -51,14 +51,26 @@ class LoginController extends Controller
             $data = DB::table('users')
                 ->join('categorie_users', 'users.id', 'categorie_users.user_id')
                 ->where('categorie_users.user_id', $id)
-                ->select('categorie_users.categorie_id', 'categorie_users.user_id')
+                ->select('categorie_users.categorie_id', 'categorie_users.user_id', 'users.role_id')
                 ->get();
-
+            //dd($data);
             return response()->json($data);
 
         } else {
             return response()->json(false);
         }
+    }
+
+    public function getArticlesFromUser($id) {
+        $data = DB::table('users')
+            ->join('categorie_users', 'users.id', 'categorie_users.user_id')
+            ->join('article_categories', 'categorie_users.categorie_id', 'article_categories.categorie_id')
+            ->join('articles', 'article_categories.article_id', 'articles.id')
+            ->where('users.id', $id)
+            ->select('articles.id', 'articles.title', 'categorie_users.categorie_id', 'articles.statut')
+            ->get();
+
+            return response()->json($data);
     }
 
 }

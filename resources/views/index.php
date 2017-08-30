@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="public/js/app/components/article/article.css">
         <link rel="stylesheet" href="public/js/app/components/categorie/categorie.css">
         <link rel="stylesheet" href="public/js/app/components/login/login.css">
+        <link rel="stylesheet" href="public/js/app/components/moderation/moderation.css">
 
 
         <!-- load dependencies -->
@@ -34,6 +35,7 @@
         <script src="public/js/app/components/article/article.js"></script>
         <script src="public/js/app/components/categorie/categorie.js"></script>
         <script src="public/js/app/components/login/login.js"></script>
+        <script src="public/js/app/components/moderation/moderation.js"></script>
 
 
     </head>

@@ -5,18 +5,51 @@ angular
     .factory('articleService',articleService)
     .factory('categorieService',categorieService)
     .factory('blogService',blogService)
-    .factory('authService',authService);
+    .factory('authService',authService)
+    .factory('moderationService',moderationService);
 
 
-authService.$inject = ['$http'];
-function authService($http){
+moderationService.$inject = ['$http','$state'];
+function moderationService($http,$state){
+
+    var moderationService = {};
+
+    moderationService.getArticles = function(id){
+        return $http.get("moderation_article/"+id);
+    }
+
+    return moderationService;
+
+}
+
+authService.$inject = ['$http','$state'];
+function authService($http,$state){
     var authService = {};
 
     authService.logged = false;
 
+    authService.userData = null;
+
 
     authService.login = function(email,password){
-        $http.post("login/",{"email" : email, "password" : password});
+        var FormData = {
+            'email' : email,
+            'password' : password
+        };
+        $http({
+            method: 'POST',
+            url: './login',
+            data: FormData,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function (response) {
+            if(response.data){
+                authService.logged = true;
+                authService.userData = response.data;
+                $state.go('menu.home')
+            }else{
+                console.log("not logged");
+            }
+        });
     }
 
     return authService;

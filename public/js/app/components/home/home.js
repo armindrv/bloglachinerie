@@ -4,10 +4,12 @@ angular
     .controller('homeCtrl', homeCtrl);
 
 
-homeCtrl.$inject = ['homeService','tenArticles','$state'];
-function homeCtrl(homeService,tenArticles,$state) {
+homeCtrl.$inject = ['homeService','tenArticles','$state','authService'];
+function homeCtrl(homeService,tenArticles,$state,authService) {
 
     var home = this;
+
+    console.log(authService.userData);
 
     home.goToArticle = function(id){
         $state.go("menu.article",{ "id": id});

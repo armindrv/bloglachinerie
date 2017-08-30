@@ -10,6 +10,9 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             templateUrl : 'public/js/app/components/menu/menu.html',
             controller : 'menuCtrl as menu',
             resolve: {
+                authService : function(authService){
+                    return authService;
+                },
                 sceneCategories : function(menuService){
                     return  menuService.getCategoriesScene()
                     .then(function(response){
@@ -34,6 +37,9 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             templateUrl : 'public/js/app/components/home/home.html',
             controller : 'homeCtrl as home',
             resolve: {
+                authService : function(authService){
+                    return authService;
+                },
                 homeService : function(homeService){
                     return homeService;
                 },
@@ -93,6 +99,27 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
              }
         })
 
+        .state('menu.moderation',{
+            url : '/moderation',
+            templateUrl : 'public/js/app/components/moderation/moderation.html',
+            controller : 'moderationCtrl as moderation',
+            resolve: {
+                // auth: function(authService,$state){
+                //     userId = authService.userData[0].user_id;
+                //     if(userId != 1 && userId != 2 && userId != 3){
+                //         $state.go('menu.home');
+                //     }
+                // },
+                articles : function(moderationService,authService){
+                    userId = 3//authService.userData[0].user_id;
+                    return moderationService.getArticles(userId)
+                    .then(function(response){
+                        return response.data;
+                    });
+                }
+            }
+        })
+
 
         .state('admin',{
             url : '/admin',
@@ -109,7 +136,7 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
         });
 
 
-    $urlRouterProvider.otherwise('/admin');
+    $urlRouterProvider.otherwise('/menu/home');
 }
 
 
