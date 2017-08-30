@@ -6,7 +6,8 @@ angular
     .factory('categorieService',categorieService)
     .factory('blogService',blogService)
     .factory('authService',authService)
-    .factory('moderationService',moderationService);
+    .factory('moderationService',moderationService)
+    .factory('labelService',labelService);
 
 
 moderationService.$inject = ['$http','$state'];
@@ -81,6 +82,17 @@ function categorieService($http){
     }
 
     return categorieService;
+}
+
+labelService.$inject = ['$http'];
+function labelService($http){
+    var labelService = {};
+
+    labelService.getLabels = function(){
+        return $http.get("labels");
+    }
+
+    return labelService;
 }
 
 articleService.$inject = ['$http'];

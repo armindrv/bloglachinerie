@@ -79,6 +79,20 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             }
         })
 
+        .state('menu.label',{
+            url : '/label',
+            templateUrl : 'public/js/app/components/label/label.html',
+            controller : 'labelCtrl as label',
+            resolve : {
+                labels : function(){
+                    return labelService.getLabels()
+                    .then(function(response){
+                        return response.data;
+                    });
+                }
+            }
+        })
+
         .state('menu.article',{
             url : '/article/:id',
             templateUrl : 'public/js/app/components/article/article.html',

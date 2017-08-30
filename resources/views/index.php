@@ -36,6 +36,8 @@
         <script src="public/js/app/components/categorie/categorie.js"></script>
         <script src="public/js/app/components/login/login.js"></script>
         <script src="public/js/app/components/moderation/moderation.js"></script>
+        <script src="public/js/app/components/moderation/article-moderation/article.moderation.js"></script>
+        <script src="public/js/app/components/label/label.js"></script>
 
 
     </head>

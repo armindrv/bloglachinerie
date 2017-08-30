@@ -1,0 +1,16 @@
+<div class="header-container">
+    <h2>Labels</h2>
+    <div class="text-underline"></div>
+</div>
+
+<div class="recent-articles-container row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-12"
+    ng-repeat="label in label.labels">
+        <div class="card">
+          <img class="card-img-top" ng-src="{{label.imageUrl}}">
+          <div class="card-block">
+            <h4 class="card-title">{{label.titre}}</h4>
+          </div>
+        </div>
+    </div>
+</div>
