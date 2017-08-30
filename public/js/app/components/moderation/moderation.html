@@ -1,12 +1,11 @@
 <div class="container">
-    {{moderation.articles | json}}
     <ul class="list-group">
 
         <!-- <li ng-repeat="article in moderation.articles" class="list-group-item">{{article.title}}</li> -->
         <li class="list-group-item justify-content-between" ng-repeat="article in moderation.articles"
         ng-click="moderation.goToArticle(article.id)">
             {{article.title}}
-            <span class="badge badge-default badge-pill" ng-if="!article.statut">en attente</span>
+            <span class="badge badge-default badge-pill" ng-if="(article.statut != 0 && article.statut != 1)">en attente</span>
             <span class="badge badge-default badge-pill" ng-if="article.statut == 1">validé</span>
             <span class="badge badge-default badge-pill" ng-if="article.statut == 0">refusé</span>
         </li>
