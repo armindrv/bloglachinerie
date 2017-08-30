@@ -5,9 +5,26 @@ angular
     .factory('articleService',articleService)
     .factory('categorieService',categorieService)
     .factory('blogService',blogService)
-    .factory('authService',authService);
+    .factory('authService',authService)
+    .factory('moderationService',moderationService);
 
 
+<<<<<<< HEAD
+moderationService.$inject = ['$http','$state'];
+function moderationService($http,$state){
+
+    var moderationService = {};
+
+    moderationService.getArticles = function(id){
+        return $http.get("moderation_article/"+id);
+    }
+
+    return moderationService;
+
+}
+
+=======
+>>>>>>> fcec0c28a2b0bce26393f9b4aea9aa6a7a235684
 authService.$inject = ['$http','$state'];
 function authService($http,$state){
     var authService = {};
@@ -30,7 +47,11 @@ function authService($http,$state){
         }).then(function (response) {
             if(response.data){
                 authService.logged = true;
+<<<<<<< HEAD
+                authService.userData = response.data;
+=======
                 authService.userData = response.data[0];
+>>>>>>> fcec0c28a2b0bce26393f9b4aea9aa6a7a235684
                 $state.go('menu.home')
             }else{
                 console.log("not logged");
