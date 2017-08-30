@@ -62,15 +62,27 @@ class LoginController extends Controller
     }
 
     public function getArticlesFromUser($id) {
-        $data = DB::table('users')
+
+        $data = DB::table('users')->distinct()
             ->join('categorie_users', 'users.id', 'categorie_users.user_id')
             ->join('article_categories', 'categorie_users.categorie_id', 'article_categories.categorie_id')
             ->join('articles', 'article_categories.article_id', 'articles.id')
             ->where('users.id', $id)
-            ->select('articles.id', 'articles.title', 'categorie_users.categorie_id', 'articles.statut')
+            ->select('articles.id', 'articles.title', 'articles.statut')
             ->get();
 
-            return response()->json($data);
+        //$artIDs = $artIDs->toArray();
+        foreach ($data as $art) {
+            //dd($val);
+            $arr = DB::table('article_categories')
+                ->where('article_categories.article_id', $art->id)
+                ->select('categorie_id')
+                ->get();
+
+            $myarray[] = array("id"=>$art->id, "title"=>$art->title, "statut"=>$art->statut, "categorie_id"=>$arr);
+
+        }
+            return response()->json($myarray);
     }
 
 }
