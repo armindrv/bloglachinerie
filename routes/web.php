@@ -71,3 +71,5 @@ Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
  //#################################	LABEL 	###########################################
 
  Route::get('/label_list', 'LabelController@getLabels');
+
+ Route::get('/label_releases/{id}', 'DisqueController@getDisqueFromLabel');
