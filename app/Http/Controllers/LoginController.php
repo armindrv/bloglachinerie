@@ -53,7 +53,7 @@ class LoginController extends Controller
                 ->where('categorie_users.user_id', $id)
                 ->select('categorie_users.categorie_id', 'categorie_users.user_id', 'users.role_id')
                 ->get();
-            //dd($data);
+
             return response()->json($data);
 
         } else {
@@ -61,8 +61,10 @@ class LoginController extends Controller
         }
     }
 
+    // Retourne tous les articles des catégories liées à l'utilisateur (modérateur/admin)
     public function getArticlesFromUser($id) {
 
+        // On récupère l'id, le titre et le statut (en attente, validé, refusé) de l'article
         $data = DB::table('users')->distinct()
             ->join('categorie_users', 'users.id', 'categorie_users.user_id')
             ->join('article_categories', 'categorie_users.categorie_id', 'article_categories.categorie_id')
@@ -70,10 +72,8 @@ class LoginController extends Controller
             ->where('users.id', $id)
             ->select('articles.id', 'articles.title', 'articles.statut')
             ->get();
-
-        //$artIDs = $artIDs->toArray();
+        // On ajoute la ou les catégories à l'article
         foreach ($data as $art) {
-            //dd($val);
             $arr = DB::table('article_categories')
                 ->where('article_categories.article_id', $art->id)
                 ->select('categorie_id')
@@ -89,6 +89,7 @@ class LoginController extends Controller
         }
     }
 
+    // Mise à jour du statut d'un article
     public function updateArticleStatut() {
         $req = json_decode(file_get_contents("php://input"));
         $id = $req->idArticle;

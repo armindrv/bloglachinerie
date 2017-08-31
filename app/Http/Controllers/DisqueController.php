@@ -30,12 +30,12 @@ class DisqueController extends Controller
     	$data = $data->toArray();
 
 
-    	// Récupère les tracks et les numéros de track du disque
+    	// Récupère les tracks, les numéros de track du disque et l'url vers les mp3
     	$data2 = DB::table('disques')
     		->join('disque_titres', 'disques.id', 'disque_titres.disque_id')
 	     	->join('titres', 'titres.id', 'disque_titres.titre_id')
 	     	->where('disques.id', $disque_id)
-	     	->select('titres.track_title', 'disque_titres.track_number')
+	     	->select('titres.track_title', 'titres.mp3_url', 'disque_titres.track_number')
 	     	->get();
 
 	     $data2 = $data2->toArray();
@@ -43,7 +43,7 @@ class DisqueController extends Controller
 
 	     // Fusion des deux tableaux
 	     $data = array_merge($data, $data2);
-
+         dd($data);
 	    return response()->json($data);
 
     }  
