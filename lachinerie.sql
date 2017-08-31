@@ -140,9 +140,9 @@ CREATE TABLE IF NOT EXISTS `disques` (
   PRIMARY KEY (`id`),
   KEY `disques_label_id_foreign` (`label_id`),
   CONSTRAINT `disques_label_id_foreign` FOREIGN KEY (`label_id`) REFERENCES `labels` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.disques : ~2 rows (environ)
+-- Export de données de la table lachinerie.disques : ~3 rows (environ)
 /*!40000 ALTER TABLE `disques` DISABLE KEYS */;
 INSERT INTO `disques` (`id`, `disque_title`, `label_id`, `image_url`, `created_at`, `updated_at`) VALUES
 	(1, 'Calm Down Homie', 1, 'resources/img/disques/1/1.jpg', '2017-06-25 00:48:37', '2017-06-25 00:48:38'),
@@ -255,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.migrations : ~17 rows (environ)
+-- Export de données de la table lachinerie.migrations : ~16 rows (environ)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(54, '2014_06_24_161538_create_artistes_table', 1),
@@ -326,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `sections` (
   CONSTRAINT `sections_typesection_id_foreign` FOREIGN KEY (`typeSection_id`) REFERENCES `section_types` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.sections : ~8 rows (environ)
+-- Export de données de la table lachinerie.sections : ~7 rows (environ)
 /*!40000 ALTER TABLE `sections` DISABLE KEYS */;
 INSERT INTO `sections` (`id`, `content`, `article_id`, `typeSection_id`, `created_at`, `updated_at`) VALUES
 	(1, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?', 1, 1, '2017-07-05 11:46:29', '2017-07-05 11:46:30'),
@@ -361,6 +361,7 @@ DROP TABLE IF EXISTS `titres`;
 CREATE TABLE IF NOT EXISTS `titres` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `track_title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mp3_url` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -368,15 +369,15 @@ CREATE TABLE IF NOT EXISTS `titres` (
 
 -- Export de données de la table lachinerie.titres : ~8 rows (environ)
 /*!40000 ALTER TABLE `titres` DISABLE KEYS */;
-INSERT INTO `titres` (`id`, `track_title`, `created_at`, `updated_at`) VALUES
-	(1, 'Dusty Space Jam', '2017-06-25 00:40:21', '2017-06-25 00:40:22'),
-	(2, 'GREAS3CAKE', '2017-06-25 00:40:34', '2017-06-25 00:40:34'),
-	(3, 'E45FIPI', '2017-06-25 00:40:46', '2017-06-25 00:40:46'),
-	(4, 'Juicy Flips', '2017-06-25 00:40:56', '2017-06-25 00:40:56'),
-	(5, 'Please Stay', '2017-06-25 00:41:11', '2017-06-25 00:41:12'),
-	(6, 'I Gotta Keep On', '2017-06-25 00:41:29', '2017-06-25 00:41:30'),
-	(7, 'Break Down', '2017-06-25 00:41:41', '2017-06-25 00:41:41'),
-	(8, 'On The Run', '2017-06-25 00:41:53', '2017-06-25 00:41:53');
+INSERT INTO `titres` (`id`, `track_title`, `mp3_url`, `created_at`, `updated_at`) VALUES
+	(1, 'Dusty Space Jam', '', '2017-06-25 00:40:21', '2017-06-25 00:40:22'),
+	(2, 'GREAS3CAKE', '', '2017-06-25 00:40:34', '2017-06-25 00:40:34'),
+	(3, 'E45FIPI', '', '2017-06-25 00:40:46', '2017-06-25 00:40:46'),
+	(4, 'Juicy Flips', '', '2017-06-25 00:40:56', '2017-06-25 00:40:56'),
+	(5, 'Please Stay', 'resources/titles/1/a1_please_stay', '2017-06-25 00:41:11', '2017-06-25 00:41:12'),
+	(6, 'I Gotta Keep On', 'resources/titles/1/a2_i_gotta_keep_on', '2017-06-25 00:41:29', '2017-06-25 00:41:30'),
+	(7, 'Break Down', 'resources/titles/1/b1_break_down', '2017-06-25 00:41:41', '2017-06-25 00:41:41'),
+	(8, 'On The Run', 'resources/titles/1/b2_on_the_run', '2017-06-25 00:41:53', '2017-06-25 00:41:53');
 /*!40000 ALTER TABLE `titres` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. titre_artistes
@@ -423,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.users : ~3 rows (environ)
+-- Export de données de la table lachinerie.users : ~2 rows (environ)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `firstname`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'xNWiaYgWzd', 'MVkWprxm5i', 'test@gmail.com', '123456', 3, NULL, NULL, NULL),
