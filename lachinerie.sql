@@ -146,7 +146,8 @@ CREATE TABLE IF NOT EXISTS `disques` (
 /*!40000 ALTER TABLE `disques` DISABLE KEYS */;
 INSERT INTO `disques` (`id`, `disque_title`, `label_id`, `image_url`, `created_at`, `updated_at`) VALUES
 	(1, 'Calm Down Homie', 1, 'resources/img/disques/1/1.jpg', '2017-06-25 00:48:37', '2017-06-25 00:48:38'),
-	(2, 'Chill David Hasselhoff', 1, 'resources/img/disques/2/2.jpg', '2017-06-25 00:48:55', '2017-06-25 00:48:55');
+	(2, 'Chill David Hasselhoff', 1, 'resources/img/disques/2/2.jpg', '2017-06-25 00:48:55', '2017-06-25 00:48:55'),
+	(3, 'Nique la Police', 3, 'resources/img/disques/3/3.jpg', '2017-08-30 16:44:32', '2017-08-30 16:44:32');
 /*!40000 ALTER TABLE `disques` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. disque_titres
@@ -254,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.migrations : ~16 rows (environ)
+-- Export de données de la table lachinerie.migrations : ~17 rows (environ)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(54, '2014_06_24_161538_create_artistes_table', 1),
@@ -325,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `sections` (
   CONSTRAINT `sections_typesection_id_foreign` FOREIGN KEY (`typeSection_id`) REFERENCES `section_types` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.sections : ~7 rows (environ)
+-- Export de données de la table lachinerie.sections : ~8 rows (environ)
 /*!40000 ALTER TABLE `sections` DISABLE KEYS */;
 INSERT INTO `sections` (`id`, `content`, `article_id`, `typeSection_id`, `created_at`, `updated_at`) VALUES
 	(1, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?', 1, 1, '2017-07-05 11:46:29', '2017-07-05 11:46:30'),
@@ -399,7 +400,7 @@ INSERT INTO `titre_artistes` (`titre_id`, `artiste_id`, `created_at`, `updated_a
 	(3, 2, '2017-06-25 00:43:12', '2017-06-25 00:43:13'),
 	(4, 2, '2017-06-25 00:43:10', '2017-06-25 00:43:11'),
 	(5, 1, '2017-06-25 00:44:19', '2017-06-25 00:44:22'),
-	(6, 1, '2017-06-25 00:43:50', '2017-06-25 00:43:51'),
+	(6, 2, '2017-06-25 00:43:50', '2017-06-25 00:43:51'),
 	(7, 1, '2017-06-25 00:44:13', '2017-06-25 00:44:13'),
 	(8, 1, '2017-06-25 00:44:00', '2017-06-25 00:44:00');
 /*!40000 ALTER TABLE `titre_artistes` ENABLE KEYS */;
@@ -422,7 +423,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.users : ~2 rows (environ)
+-- Export de données de la table lachinerie.users : ~3 rows (environ)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `firstname`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'xNWiaYgWzd', 'MVkWprxm5i', 'test@gmail.com', '123456', 3, NULL, NULL, NULL),
