@@ -8,7 +8,7 @@ use App\Disque;
 
 class DisqueController extends Controller
 {
-    
+
     // Récupère tous les titres et les pochettes des disques présents dans la base
 	public function getAllDisques() {
     	$data = DB::table('disques')
@@ -43,10 +43,10 @@ class DisqueController extends Controller
 
 	     // Fusion des deux tableaux
 	     $data = array_merge($data, $data2);
-         dd($data);
+         //dd($data);
 	    return response()->json($data);
 
-    }  
+    }
 
     // Retourne tous les disques d'un label
     public function getDisqueFromLabel($id) {
@@ -58,7 +58,7 @@ class DisqueController extends Controller
 
         // Récupère le ou les artistes présents sur les disques
         foreach($data as $disque) {
-           
+
         $res = DB::table('disques')
             ->join('disque_titres', 'disques.id', 'disque_titres.disque_id')
             ->join('titres', 'titres.id', 'disque_titres.titre_id')
@@ -68,17 +68,17 @@ class DisqueController extends Controller
             ->groupBy('artistes.name')
             ->select('artistes.name')
             ->get();
-            
+
             // ajout des artistes au disque
             $array[] = array("id"=>$disque->id, "disque_title"=>$disque->disque_title, "image_url"=>$disque->image_url, "artiste_name"=>$res);
 
-            
+
         }
         if(isset($array)){
             return response()->json($array);
         } else {
             return null;
         }
-        
+
     }
 }

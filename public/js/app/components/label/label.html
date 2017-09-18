@@ -5,11 +5,11 @@
 
 <div class="recent-articles-container row">
     <div class="col-xl-6 col-lg-6 col-md-6 col-xs-12"
-    ng-repeat="label in label.labels">
-        <div class="card">
-          <img class="card-img-top" ng-src="{{label.imageUrl}}">
+    ng-repeat="currentLabel in label.labels">
+        <div class="card" ng-click="label.goTodisques(currentLabel.id)">
+          <img class="card-img-top" ng-src="{{currentLabel.img_url}}">
           <div class="card-block">
-            <h4 class="card-title">{{label.titre}}</h4>
+            <h4 class="card-title">{{currentLabel.name}}</h4>
           </div>
         </div>
     </div>

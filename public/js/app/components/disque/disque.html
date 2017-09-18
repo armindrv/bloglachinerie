@@ -1,0 +1,38 @@
+<div class="header-container">
+    <h2>{{disque.info.disque_title}}</h2>
+    <div class="text-underline"></div>
+</div>
+
+
+<div class="row disque-container">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-12">
+        <img ng-src="{{disque.info.image_url}}" class="col">
+    </div>
+
+    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-12 list-group disque-titles">
+        <a ng-repeat="titre in disque.titres | limitTo : (1 - disque.titres.length)"
+        href="" class="list-group-item disque-track"
+        ng-click="disque.togglePlay(titre.mp3_url,$index)">
+
+
+        <!-- play icons -->
+
+        <span class="glyphicon glyphicon-play"
+        ng-if="disque.selectedTrack.status == 'pause' || disque.selectedTrack.index != $index"
+        ng-class="{playingTrack:disque.selectedTrack.index == $index}"></span>
+
+
+        <span class="glyphicon glyphicon-pause"
+        ng-if="disque.selectedTrack.status == 'play' && disque.selectedTrack.index == $index"
+        ng-class="{playingTrack:disque.selectedTrack.index == $index}"></span>
+
+        <!-- /play icons -->
+
+
+        <span class="track-number">{{titre.track_number}}</span>
+        <span class="title">{{titre.track_title}}</span>
+
+        </a>
+
+    </div>
+</div>

@@ -84,11 +84,42 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             templateUrl : 'public/js/app/components/label/label.html',
             controller : 'labelCtrl as label',
             resolve : {
-                labels : function(){
+                labels : function(labelService){
                     return labelService.getLabels()
                     .then(function(response){
+                        console.log(response);
                         return response.data;
                     });
+                }
+            }
+        })
+
+        .state('menu.disques',{
+            url : '/disques/:id',
+            templateUrl : 'public/js/app/components/disques/disques.html',
+            controller : 'disquesCtrl as disques',
+            resolve : {
+                disques : function(disquesService,$stateParams){
+                    return disquesService.getDisques($stateParams.id)
+                    .then(function(response){
+                        console.log(response);
+                        return response.data;
+                    })
+                }
+            }
+        })
+
+        .state('menu.disque',{
+            url : '/disque/:id',
+            templateUrl : 'public/js/app/components/disque/disque.html',
+            controller : 'disqueCtrl as disque',
+            resolve : {
+                titres : function(disqueService,$stateParams){
+                    return disqueService.getTitres($stateParams.id)
+                    .then(function(response){
+                        console.log(response);
+                        return response.data;
+                    })
                 }
             }
         })

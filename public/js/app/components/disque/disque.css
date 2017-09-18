@@ -1,0 +1,64 @@
+.disque-container {
+    margin-left: 60px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-right: 0;
+}
+
+.disque-container img {
+    height: 400px;
+}
+
+.disque-container .disque-titles {
+    padding-right: 50px;
+}
+
+.disque-container .disque-titles span.title {
+    font-weight: 600;
+}
+
+.disque-container .disque-titles span.track-number {
+    font-weight: 200;
+    margin-right: 15px;
+}
+
+
+
+.disque-container .disque-titles .glyphicon {
+    font-weight: 200;
+    margin-right: 15px;
+    font-weight: 100;
+    visibility: hidden;
+}
+
+.disque-track:hover .glyphicon{
+    visibility: visible;
+}
+
+.playingTrack{
+    visibility: visible !important;
+}
+
+@media (max-width: 800px) {
+    .disque-container {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .disque-container img {
+        height: 300px;
+    }
+
+    .disque-container .disque-titles {
+        padding-right: 0;
+        margin-top: 20px;
+        text-align: left;
+    }
+}
+
+
+@media (max-width: 300px) {
+    .disque-container {
+        visibility: hidden;
+    }
+}

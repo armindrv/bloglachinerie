@@ -35,13 +35,13 @@
               <li ng-repeat="item in menu.sceneItems" ><a ng-click="menu.goToCategorie(item.id,item.lib)">{{item.lib}}</a></li>
             </ul>
           </li>
-          <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3"><a >Label</a></li>
+          <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3" ><a ng-click="menu.goToLabels()">Label</a></li>
           <li ng-class="{active:selectedLink == 4}" ng-click="selectedLink = 4"><a href="#">Artistes</a></li>
           <li ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5"><a href="#">Digging</a></li>
           <li ng-class="{active:selectedLink == 6}" ng-click="selectedLink = 6"><a href="#">Shop</a></li>
-
+          <li ng-class="{active:selectedLink == 7}" ng-click="selectedLink = 7"><a href="#">Nous écrire</a></li>
           <li ng-visible="menu.userRole != 4"
-          ng-class="{active:selectedLink == 7}" ng-click="selectedLink = 7"><a ng-click="menu.moderation()">Administration des articles</a></li>
+          ng-class="{active:selectedLink == 8}" ng-click="selectedLink = 8"><a ng-click="menu.moderation()">Administration des articles</a></li>
         </ul>
       </div>
 

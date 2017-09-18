@@ -7,6 +7,8 @@ angular
     .factory('blogService',blogService)
     .factory('authService',authService)
     .factory('moderationService',moderationService)
+    .factory('disquesService',disquesService)
+    .factory('disqueService',disqueService)
     .factory('labelService',labelService);
 
 
@@ -63,6 +65,7 @@ function authService($http,$state){
             if(response.data){
                 authService.logged = true;
                 authService.userData = response.data;
+                console.log(authService.userData);
                 $state.go('menu.home')
             }else{
                 console.log("not logged");
@@ -89,10 +92,32 @@ function labelService($http){
     var labelService = {};
 
     labelService.getLabels = function(){
-        return $http.get("labels");
+        return $http.get("label_list");
     }
 
     return labelService;
+}
+
+disquesService.$inject = ['$http'];
+function disquesService($http){
+    var disquesService = {};
+
+    disquesService.getDisques = function(id){
+        return $http.get("label_releases/"+id);
+    }
+
+    return disquesService;
+}
+
+disqueService.$inject = ['$http'];
+function disqueService($http){
+    var disqueService = {};
+
+    disqueService.getTitres = function(id){
+        return $http.get("disques/"+id);
+    }
+
+    return disqueService;
 }
 
 articleService.$inject = ['$http'];

@@ -8,7 +8,6 @@ function menuCtrl(menuService,blogCategories,sceneCategories,$state,authService)
 
     var menu = this;
 
-    console.log(authService);
     if(authService.userData)
         menu.userRole = authService.userData[0].user_id;
 
@@ -24,5 +23,9 @@ function menuCtrl(menuService,blogCategories,sceneCategories,$state,authService)
 
     menu.goToCategorie = function(categorieId,categorieLib){
         $state.go("menu.categorie",{"id" : categorieId, "lib" : categorieLib});
+    }
+
+    menu.goToLabels = function(){
+        $state.go("menu.label");
     }
 }
