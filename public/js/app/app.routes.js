@@ -210,6 +210,12 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
                     }
                 }
             }
+        })
+
+        .state('menu.publication',{
+            url : '/publication',
+            templateUrl : 'public/js/app/components/publication/publication.html',
+            controller : 'publicationCtrl as publication'
         });
 
 

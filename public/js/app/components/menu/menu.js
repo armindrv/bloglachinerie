@@ -28,4 +28,9 @@ function menuCtrl(menuService,blogCategories,sceneCategories,$state,authService)
     menu.goToLabels = function(){
         $state.go("menu.label");
     }
+
+    menu.goToPublication = function(){
+        console.log("go to publication");
+        $state.go("menu.publication");
+    }
 }

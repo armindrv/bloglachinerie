@@ -1,4 +1,5 @@
 var app = angular.module('chineurs', [
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'textAngular'
 ])
