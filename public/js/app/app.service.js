@@ -9,7 +9,36 @@ angular
     .factory('moderationService',moderationService)
     .factory('disquesService',disquesService)
     .factory('disqueService',disqueService)
+    .factory('publicationService',publicationService)
     .factory('labelService',labelService);
+
+
+
+publicationService.$inject = ['$http'];
+function publicationService($http){
+    var publicationService = {};
+
+    publicationService.test = "PICKLE RIIICK";
+
+    publicationService.sendArticle = function(base64Image,articleHtml){
+        console.log(articleHtml);
+        var data = {
+            'image' : base64Image,
+            'article' : articleHtml
+        };
+        $http({
+            method: 'POST',
+            url: './create_article',
+            data: data,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function (response) {
+            console.log(response);
+        });
+    }
+
+
+    return publicationService;
+}
 
 
 moderationService.$inject = ['$http','$state'];
