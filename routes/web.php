@@ -27,6 +27,10 @@ Route::get('/categoriesBlog', 'CategorieController@getCategoriesBlog');
 
 Route::get('/categoriesLocale', 'CategorieController@getCategoriesLocale');
 
+// Récupère toutes les catégories
+
+Route::get('/all_categories', 'CategorieController@getCategories');
+
 
 //#################################	  ARTICLES   ###########################################
 
@@ -42,6 +46,10 @@ Route::get('/article/{article_id}', 'ArticleController@getArticle');
 // Récupère tous les articles d'une catégorie donnée
 
 Route::get('/categorie/{categorie_id}', 'ArticleController@getArticlesFromCategorie');
+
+// Insère un article en base
+
+Route::post('/create_article', 'ArticleController@createArticle');
 
 //#################################	  DISQUES   ###########################################
 

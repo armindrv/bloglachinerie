@@ -22,4 +22,10 @@ class CategorieController extends Controller
 
     	return response()->json($data);
     }    
+
+    public function getCategories() {
+    	$data = DB::table('categories')->select('id', 'libelle as lib')->get();
+
+    	return response()->json($data);
+    }
 }
