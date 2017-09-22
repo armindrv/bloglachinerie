@@ -53,6 +53,12 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             }
         })
 
+        .state('menu.artistes',{
+            url : '/artistes',
+            templateUrl : 'public/js/app/components/artistes/artistes.html',
+            controller : 'artistesCtrl as artistes'
+        })
+
 
         .state('menu.blog',{
             url : '/blog',
@@ -198,18 +204,25 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
         })
 
 
-        .state('admin',{
-            url : '/admin',
+        // .state('admin',{
+        //     url : '/admin',
+        //     templateUrl : 'public/js/app/components/login/login.html',
+        //     controller : 'loginCtrl as login',
+        //     resolve: {
+        //         auth: function(authService,$state){
+        //             if(authService.logged){
+
+        //                 console.log("logged");
+        //             }
+        //         }
+        //     }
+        // })
+
+
+        .state('login',{
+            url : '/login',
             templateUrl : 'public/js/app/components/login/login.html',
             controller : 'loginCtrl as login',
-            resolve: {
-                auth: function(authService,$state){
-                    if(authService.logged){
-                        // todo : rediriger vers page d'admin si il est logué
-                        console.log("logged");
-                    }
-                }
-            }
         })
 
         .state('menu.publication',{

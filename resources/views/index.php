@@ -53,6 +53,7 @@
         <script src="public/js/app/components/disques/disques.js"></script>
         <script src="public/js/app/components/disque/disque.js"></script>
         <script src="public/js/app/components/publication/publication.js"></script>
+        <script src="public/js/app/components/artistes/artistes.js"></script>
 
 
     </head>

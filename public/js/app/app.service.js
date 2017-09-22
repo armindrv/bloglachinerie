@@ -10,6 +10,7 @@ angular
     .factory('disquesService',disquesService)
     .factory('disqueService',disqueService)
     .factory('publicationService',publicationService)
+    // .factory('artistesService',artistesService)
     .factory('labelService',labelService);
 
 
@@ -79,6 +80,11 @@ function authService($http,$state){
 
     authService.userData = null;
 
+    authService.logout = function(){
+        authService.logged = false;
+        authService.userData = null;
+        $state.go('menu.home')
+    }
 
     authService.login = function(email,password){
         var FormData = {

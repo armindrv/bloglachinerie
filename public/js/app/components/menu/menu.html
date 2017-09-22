@@ -36,12 +36,14 @@
             </ul>
           </li>
           <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3" ><a ng-click="menu.goToLabels()">Label</a></li>
-          <li ng-class="{active:selectedLink == 4}" ng-click="selectedLink = 4"><a href="#">Artistes</a></li>
+          <li ng-class="{active:selectedLink == 4}" ng-click="selectedLink = 4"><a ng-click="menu.goToArtistes()">Artistes</a></li>
           <li ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5"><a href="#">Digging</a></li>
           <li ng-class="{active:selectedLink == 6}" ng-click="selectedLink = 6"><a href="#">Shop</a></li>
           <li ng-class="{active:selectedLink == 7}" ng-click="selectedLink = 7"><a ng-click="menu.goToPublication()">Nous écrire</a></li>
-          <li ng-visible="menu.userRole != 4"
+          <li ng-if="menu.userRole != 4"
           ng-class="{active:selectedLink == 8}" ng-click="selectedLink = 8"><a ng-click="menu.moderation()">Administration des articles</a></li>
+          <li ng-if="menu.logged" ng-class="{active:selectedLink == 9}" ng-click="selectedLink = 9"><a ng-click="menu.logoff()">Se déconnecter</a></li>
+          <li ng-if="!menu.logged" ng-class="{active:selectedLink == 10}" ng-click="selectedLink = 10"><a ng-click="menu.login()">Se connecter</a></li>
         </ul>
       </div>
 

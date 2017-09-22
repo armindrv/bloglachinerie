@@ -41,5 +41,6 @@
     <div class="publication-editor" text-angular ng-model="publication.htmlVar"></div>
 
     <button type="button" ng-click="publication.publier()" class="btn btn-primary btn-lg btn-block">Publier</button>
+    <div class="error-line" ng-if="!form-complete"><span>Erreur, veuillez renseigner tout les champs</span></div>
 
 </div>

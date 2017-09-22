@@ -8,14 +8,31 @@ function menuCtrl(menuService,blogCategories,sceneCategories,$state,authService)
 
     var menu = this;
 
-    if(authService.userData)
-        menu.userRole = authService.userData[0].user_id;
+    getAuthData();
 
-    menu.userRole = 2; //TEMPORAIRE SUPPRIMER APRES
+    function getAuthData(){
+        menu.logged = authService.logged;
+
+        if(menu.logged){
+            menu.userRole = authService.userData[0].user_id;
+        }else{
+            //non connecté
+            menu.userRole = 4; // USER
+        }
+    }
 
 
     menu.blogItems = blogCategories;
     menu.sceneItems  = sceneCategories;
+
+    menu.login = function(){
+        $state.go("login");
+    }
+
+    menu.logoff = function(){
+        authService.logout();
+        getAuthData();
+    }
 
     menu.moderation = function(){
         $state.go("menu.moderation",{"id":menu.userRole});
@@ -32,5 +49,10 @@ function menuCtrl(menuService,blogCategories,sceneCategories,$state,authService)
     menu.goToPublication = function(){
         console.log("go to publication");
         $state.go("menu.publication");
+    }
+
+    menu.goToArtistes = function(){
+        console.log("go to Artistes");
+        $state.go("menu.artistes");
     }
 }
