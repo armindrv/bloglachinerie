@@ -32,9 +32,8 @@ function publicationCtrl(publicationService,$scope,categories) {
     publication.publier = function(){
         var categoriesArray = toCategoriesArray(publication.selectedCategories);
         publicationService.sendArticle(
-            publicatin.titre,
-            publicatin.image,
-            publication.htmlVar,
+            publication.titre,
+            publication.image,
             publication.htmlVar,
             publication.description,
             categoriesArray

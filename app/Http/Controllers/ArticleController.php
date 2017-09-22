@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Article;
 use App\Section;
+use App\Article_categorie;
 
 class ArticleController extends Controller
 {
@@ -28,7 +29,7 @@ class ArticleController extends Controller
 
     public function getArticle($article_id){
 
-
+    	
     	// Récupère le titre et la pochette du disque
     	$data = DB::table('articles')
     		->where('articles.id', $article_id)
@@ -53,7 +54,7 @@ class ArticleController extends Controller
 	     $data = array_merge($data, $data2);
 
 
-
+    		
     	return response()->json($data);
     }
 
@@ -67,7 +68,7 @@ class ArticleController extends Controller
     		->where('sections.typeSection_id', 2)
     		->select('articles.id', 'articles.title as titre', 'articles.description', 'sections.content as imageUrl')
     		->get();
-
+            
     	return response()->json($data);
     }
 
@@ -75,12 +76,12 @@ class ArticleController extends Controller
         $req = json_decode(file_get_contents("php://input"));
 
         $content = $req->article;
-        $encoded_img = $req->image;
+        
         $titre = $req->titre;
         $desc = $req->description;
-        $encoded_img = str_replace('data:image/png;base64,', '', $encoded_img);
-        $image = base64_decode($encoded_img);
-
+        $cat = $req->categories;
+        
+        //dd($cat);
         $article = new Article;
         $article->description = $desc;
         $article->title = $titre;
@@ -90,14 +91,40 @@ class ArticleController extends Controller
 
         $artID = $article->id;
 
-        Storage::put('img/articles/'.$artID.'/'.$artID.'.png', $image);
+        if(isset($req->image)) {
+            $encoded_img = $req->image;
+            $encoded_img = str_replace('data:image/png;base64,', '', $encoded_img);
+            $image = base64_decode($encoded_img);
+            Storage::put('img/articles/'.$artID.'/'.$artID.'.png', $image);
+            $path_to_img = Storage::disk('public')->url($artID.'/'.$artID.'.png');
+        } else {
+            $path_to_img = "null";
+        }
 
-        $path_to_img = Storage::disk('public')->url($artID.'/'.$artID.'.png');
+        $sectionTxt = new Section;
+        $sectionTxt->content = $content;
+        $sectionTxt->typeSection_id = 1;
+        $sectionTxt->article_id = $artID;
+        $sectionTxt->save();
 
+        $sectionImg = new Section;
+        $sectionImg->content = $content;
+        $sectionImg->typeSection_id = 2;
+        $sectionImg->article_id = $artID;
+        $sectionImg->save();
+/*
         DB::table('sections')->insert([
             ['content' => $content, 'typeSection_id' => 1, 'article_id' => $artID],
             ['content' => $path_to_img, 'typeSection_id' => 2, 'article_id' => $artID]
-        ]);
+        ]);*/
 
+        foreach ($cat as $categ) {
+            $art_cat = new Article_categorie;
+            $art_cat->categorie_id = $categ;
+            $art_cat->article_id = $artID;
+            $art_cat->save();
+         /*   DB::table('article_categories')->insert(['categorie_id' => $categ, 'article_id' => $artID]);*/
+        }
+        
     }
 }
