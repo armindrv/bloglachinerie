@@ -20,11 +20,13 @@ function publicationService($http){
 
     publicationService.test = "PICKLE RIIICK";
 
-    publicationService.sendArticle = function(base64Image,articleHtml){
-        console.log(articleHtml);
+    publicationService.sendArticle = function(titre,image,article,description,categories){
         var data = {
-            'image' : base64Image,
-            'article' : articleHtml
+            'titre' : titre,
+            'image' : image,
+            'article' : article,
+            'description' : description,
+            'categories' : categories
         };
         $http({
             method: 'POST',
@@ -35,8 +37,6 @@ function publicationService($http){
             console.log(response);
         });
     }
-
-
     return publicationService;
 }
 
@@ -111,6 +111,10 @@ function categorieService($http){
 
     categorieService.getArticlesByCategorie = function(idCategorie){
         return $http.get("categorie/"+idCategorie);
+    }
+
+    categorieService.getAllCategories = function(){
+        return $http.get("all_categories");
     }
 
     return categorieService;

@@ -28,7 +28,7 @@ class ArticleController extends Controller
 
     public function getArticle($article_id){
 
-    	
+
     	// Récupère le titre et la pochette du disque
     	$data = DB::table('articles')
     		->where('articles.id', $article_id)
@@ -53,7 +53,7 @@ class ArticleController extends Controller
 	     $data = array_merge($data, $data2);
 
 
-    		
+
     	return response()->json($data);
     }
 
@@ -67,7 +67,7 @@ class ArticleController extends Controller
     		->where('sections.typeSection_id', 2)
     		->select('articles.id', 'articles.title as titre', 'articles.description', 'sections.content as imageUrl')
     		->get();
-            
+
     	return response()->json($data);
     }
 
@@ -76,8 +76,8 @@ class ArticleController extends Controller
 
         $content = $req->article;
         $encoded_img = $req->image;
-        $titre = "blablabla";
-        $desc = "albalbalb";
+        $titre = $req->titre;
+        $desc = $req->description;
         $encoded_img = str_replace('data:image/png;base64,', '', $encoded_img);
         $image = base64_decode($encoded_img);
 
@@ -98,6 +98,6 @@ class ArticleController extends Controller
             ['content' => $content, 'typeSection_id' => 1, 'article_id' => $artID],
             ['content' => $path_to_img, 'typeSection_id' => 2, 'article_id' => $artID]
         ]);
-        
+
     }
 }

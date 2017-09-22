@@ -7,3 +7,18 @@
 .form-control {
     margin-top: 20px;
 }
+
+
+
+.publication-form h2{
+    margin-top: 30px !important;
+    color : #333;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+
+.publication-form button{
+    text-align: center;
+    margin-bottom: 30px;
+}

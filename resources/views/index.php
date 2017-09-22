@@ -27,7 +27,7 @@
         <script src="public/js/bower_components/angular-ui-bootstrap/angular-ui-bootstrap.min.js"></script>
         <script src="public/js/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="public/js/bower_components/bootstrap/js/bootstrap.min.js"></script>
-
+        <script src='public/js/bower_components/angular-upload/angular-upload.min.js'></script>
         <script src='public/js/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
         <script src='public/js/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
         <script src='public/js/bower_components/textAngular/dist/textAngular.min.js'></script>

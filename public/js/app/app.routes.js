@@ -219,8 +219,15 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             resolve: {
                 publicationService: function(publicationService){
                     return publicationService;
+                },
+                categories : function(categorieService){
+                    return categorieService.getAllCategories()
+                    .then(function(response){
+                        return response.data;
+                    });
                 }
             }
+
         });
 
 
