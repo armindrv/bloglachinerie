@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+
 use App\Article;
+use App\Section;
 
 class ArticleController extends Controller
 {
@@ -69,7 +71,33 @@ class ArticleController extends Controller
     	return response()->json($data);
     }
 
-    public function getArticlesForAdmin($cat_ids) {
+    public function createArticle() {
+        $req = json_decode(file_get_contents("php://input"));
+
+        $content = $req->article;
+        $encoded_img = $req->image;
+        $titre = "blablabla";
+        $desc = "albalbalb";
+        $encoded_img = str_replace('data:image/png;base64,', '', $encoded_img);
+        $image = base64_decode($encoded_img);
+
+        $article = new Article;
+        $article->description = $desc;
+        $article->title = $titre;
+        $article->statut = null;
+
+        $article->save();
+
+        $artID = $article->id;
+
+        Storage::put('img/articles/'.$artID.'/'.$artID.'.png', $image);
+
+        $path_to_img = Storage::disk('public')->url($artID.'/'.$artID.'.png');
+
+        DB::table('sections')->insert([
+            ['content' => $content, 'typeSection_id' => 1, 'article_id' => $artID],
+            ['content' => $path_to_img, 'typeSection_id' => 2, 'article_id' => $artID]
+        ]);
         
     }
 }
