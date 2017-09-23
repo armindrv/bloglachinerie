@@ -1,0 +1,11 @@
+.soundcloud-link {
+    /*background-color: orange;*/
+    width: 80%;
+    display: inline-block;
+}
+
+.soundcloud-wrapper {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}

@@ -8,6 +8,7 @@ function categorieCtrl(articles,$state,$stateParams) {
 
     var categorie = this;
     categorie.articles = articles;
+    console.log(categorie.articles);
     categorie.lib = $stateParams.lib;
 
     categorie.goToArticle = function(id){

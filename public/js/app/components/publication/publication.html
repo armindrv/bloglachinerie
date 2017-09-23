@@ -40,7 +40,7 @@
     <h2>Contenu de l'article</h2>
     <div class="publication-editor" text-angular ng-model="publication.htmlVar"></div>
 
+    <div class="error-line" ng-if="publication.formIncomplete"><span>veuillez renseigner tout les champs</span></div>
     <button type="button" ng-click="publication.publier()" class="btn btn-primary btn-lg btn-block">Publier</button>
-    <div class="error-line" ng-if="!form-complete"><span>Erreur, veuillez renseigner tout les champs</span></div>
 
 </div>

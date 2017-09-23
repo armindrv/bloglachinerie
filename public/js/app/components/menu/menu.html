@@ -18,8 +18,6 @@
         </button>
       </div>
 
-
-
       <!-- navbar content -->
       <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav" ng-init="">
@@ -37,7 +35,13 @@
           </li>
           <li ng-class="{active:selectedLink == 3}" ng-click="selectedLink = 3" ><a ng-click="menu.goToLabels()">Label</a></li>
           <li ng-class="{active:selectedLink == 4}" ng-click="selectedLink = 4"><a ng-click="menu.goToArtistes()">Artistes</a></li>
-          <li ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5"><a href="#">Digging</a></li>
+          <!-- <li ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5"><a href="#">Digging</a></li> -->
+          <li class="dropdown" ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Digging<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li ng-repeat="item in menu.blogItems" ><a ng-click="menu.goToCategorie(item.id,item.lib)">{{item.lib}}</a></li>
+            </ul>
+          </li>
           <li ng-class="{active:selectedLink == 6}" ng-click="selectedLink = 6"><a href="#">Shop</a></li>
           <li ng-class="{active:selectedLink == 7}" ng-click="selectedLink = 7"><a ng-click="menu.goToPublication()">Nous écrire</a></li>
           <li ng-if="menu.userRole != 4"

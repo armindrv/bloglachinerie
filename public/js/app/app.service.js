@@ -10,8 +10,73 @@ angular
     .factory('disquesService',disquesService)
     .factory('disqueService',disqueService)
     .factory('publicationService',publicationService)
-    // .factory('artistesService',artistesService)
+    .factory('artistesService',artistesService)
     .factory('labelService',labelService);
+
+
+
+artistesService.$inject = ['$http'];
+function artistesService($http){
+    var artistesService = {};
+
+
+    artistesService.getArtisteById = function(id){
+        return {
+            "id" : 1,
+            "image_url" : "resources/img/1/1.png",
+            "nom" : "artiste1",
+            "biographie" : "Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui.",
+            "sc_link" : "https://soundcloud.com/postmalone"
+        }
+    }
+
+    artistesService.getAllArtistes = function(){
+
+        return {
+            "01" : {
+                "id" : 1,
+                "image_url" : "resources/img/1/1.png",
+                "nom" : "artiste1"
+            },
+            "02" : {
+                "id" : 2,
+                "image_url" : "resources/img/2/2.png",
+                "nom" : "artiste2"
+            },
+            "03" : {
+                "id" : 3,
+                "image_url" : "resources/img/3/3.png",
+                "nom" : "artiste3"
+            },
+            "04" : {
+                "id" : 4,
+                "image_url" : "resources/img/4/4.png",
+                "nom" : "artiste4"
+            },
+            "05" : {
+                "id" : 5,
+                "image_url" : "resources/img/1/1.png",
+                "nom" : "artiste5"
+            },
+            "06" : {
+                "id" : 6,
+                "image_url" : "resources/img/2/2.png",
+                "nom" : "artiste6"
+            },
+            "07" : {
+                "id" : 7,
+                "image_url" : "resources/img/3/3.png",
+                "nom" : "artiste7"
+            },
+            "08" : {
+                "id" : 8,
+                "image_url" : "resources/img/4/4.png",
+                "nom" : "artiste8"
+            }
+        }
+    }
+    return artistesService;
+}
 
 
 

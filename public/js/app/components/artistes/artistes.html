@@ -1,4 +1,18 @@
 <div class="header-container">
-    <h2>{{artistes.test}}</h2>
+    <h2>Artistes</h2>
     <div class="text-underline"></div>
+</div>
+
+<div class="recent-articles-container row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-xs-12"
+    ng-repeat="artiste in artistes.artistesData">
+        <div class="card"
+        ng-click="artistes.gotToArtiste(artiste.id)">
+          <img class="card-img-top" ng-src="{{artiste.image_url}}">
+          <div class="card-block">
+            <h4 class="card-title">{{artiste.nom}}</h4>
+            <!-- <p class="card-text">{{article.description | limitTo:50 }}</p> -->
+          </div>
+        </div>
+    </div>
 </div>

@@ -8,11 +8,12 @@ function publicationCtrl(publicationService,$scope,categories) {
 
     var publication = this;
 
-    publication.image;
-    publication.titre;
+    publication.image = null;
+    publication.titre = "";
     publication.selectedCategories = {};
-    publication.description;
-    publication.htmlVar;
+    publication.description = "";
+    publication.htmlVar = "";
+    publication.formIncomplete = false;
 
 
     publication.categories = categories;
@@ -31,13 +32,33 @@ function publicationCtrl(publicationService,$scope,categories) {
 
     publication.publier = function(){
         var categoriesArray = toCategoriesArray(publication.selectedCategories);
-        publicationService.sendArticle(
-            publication.titre,
-            publication.image,
-            publication.htmlVar,
-            publication.description,
-            categoriesArray
-        );
+
+
+        console.log("categories : " + (categoriesArray.length > 0));
+        console.log("titre : " + (publication.titre.length > 0));
+        console.log("image : " + (publication.image != null));
+        console.log("html : " + (publication.htmlVar.length > 0));
+        console.log("description : " + (publication.description > 0));
+
+
+        if(
+            publication.titre.length > 0 &&
+            publication.image != null &&
+            publication.htmlVar.length > 0 &&
+            publication.description.length > 0 &&
+            categoriesArray.length > 0
+        ){
+            publication.formIncomplete = false;
+            publicationService.sendArticle(
+                publication.titre,
+                publication.image,
+                publication.htmlVar,
+                publication.description,
+                categoriesArray
+            );
+        }else{
+            publication.formIncomplete = true;
+        }
     }
 
     $scope.imageUploaded = function(image){

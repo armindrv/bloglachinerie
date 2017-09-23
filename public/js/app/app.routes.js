@@ -56,8 +56,26 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
         .state('menu.artistes',{
             url : '/artistes',
             templateUrl : 'public/js/app/components/artistes/artistes.html',
-            controller : 'artistesCtrl as artistes'
+            controller : 'artistesCtrl as artistes',
+            resolve : {
+                artistes : function(artistesService){
+                    return artistesService.getAllArtistes();
+                }
+            }
         })
+
+        .state('menu.artiste',{
+            url : '/artiste',
+            templateUrl : 'public/js/app/components/artiste/artiste.html',
+            controller : 'artisteCtrl as artiste',
+            resolve : {
+                artiste : function(artistesService,$stateParams){
+                    return artistesService.getArtisteById($stateParams.id);
+                }
+            }
+        })
+
+
 
 
         .state('menu.blog',{

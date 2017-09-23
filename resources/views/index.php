@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="public/js/app/components/moderation/moderation.css">
         <link rel="stylesheet" href="public/js/app/components/disque/disque.css">
         <link rel="stylesheet" href="public/js/app/components/publication/publication.css">
+        <link rel="stylesheet" href="public/js/app/components/artiste/artiste.css">
 
 
 
@@ -54,6 +55,7 @@
         <script src="public/js/app/components/disque/disque.js"></script>
         <script src="public/js/app/components/publication/publication.js"></script>
         <script src="public/js/app/components/artistes/artistes.js"></script>
+        <script src="public/js/app/components/artiste/artiste.js"></script>
 
 
     </head>
