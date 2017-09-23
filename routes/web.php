@@ -31,6 +31,9 @@ Route::get('/categoriesLocale', 'CategorieController@getCategoriesLocale');
 
 Route::get('/all_categories', 'CategorieController@getCategories');
 
+// Récupère toutes les catégories digging
+
+Route::get('/categoriesDigging', 'CategorieController@getCategoriesDigging');
 
 //#################################	  ARTICLES   ###########################################
 
@@ -78,6 +81,20 @@ Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
 
  //#################################	LABEL 	###########################################
 
+ // Récupère tous les labels
+
  Route::get('/label_list', 'LabelController@getLabels');
 
+ // Récupère tous les disques d'un label
+
  Route::get('/label_releases/{id}', 'DisqueController@getDisqueFromLabel');
+
+ //#################################	ARTISTES	###########################################
+
+ // Récupère tous les artistes
+ 
+ Route::get('/artistes/all', 'ArtisteController@getAllArtistes');
+
+ // Récupère un artiste par ID
+
+ Route::get('/artiste/{id}', 'ArtisteController@getArtisteById');

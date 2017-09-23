@@ -18,7 +18,13 @@ class CreateArtistesTable extends Migration
             $table->increments('id');
             
             $table->string('name');
+
+            $table->string('sc_link', 150);
             
+            $table->string('img_url', 300);
+
+            $table->text('biographie');
+
             $table->timestamps();
         
         });

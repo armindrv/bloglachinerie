@@ -112,18 +112,12 @@ class ArticleController extends Controller
         $sectionImg->typeSection_id = 2;
         $sectionImg->article_id = $artID;
         $sectionImg->save();
-/*
-        DB::table('sections')->insert([
-            ['content' => $content, 'typeSection_id' => 1, 'article_id' => $artID],
-            ['content' => $path_to_img, 'typeSection_id' => 2, 'article_id' => $artID]
-        ]);*/
 
         foreach ($cat as $categ) {
             $art_cat = new Article_categorie;
             $art_cat->categorie_id = $categ;
             $art_cat->article_id = $artID;
             $art_cat->save();
-         /*   DB::table('article_categories')->insert(['categorie_id' => $categ, 'article_id' => $artID]);*/
         }
         
     }

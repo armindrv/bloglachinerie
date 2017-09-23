@@ -18,7 +18,11 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             
             $table->string('title');
+
+            $table->string('description', 500);
             
+            $table->tinyInteger('statut');
+
             $table->timestamps();
         
         });

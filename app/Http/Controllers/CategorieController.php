@@ -9,14 +9,14 @@ use App\Categorie;
 
 class CategorieController extends Controller
 {
-    public function getCategoriesBlog(){
+    public function getCategoriesBlog() {
 
     	$data = DB::table('categories')->where('isLocale', 0)->select('id', 'libelle as lib')->get();
 
     	return response()->json($data);
     }
 
-    public function getCategoriesLocale(){
+    public function getCategoriesLocale() {
 
     	$data = DB::table('categories')->where('isLocale', 1)->select('id', 'libelle as lib')->get();
 
@@ -27,5 +27,11 @@ class CategorieController extends Controller
     	$data = DB::table('categories')->select('id', 'libelle as lib')->get();
 
     	return response()->json($data);
+    }
+
+    public function getCategoriesDigging() {
+        $data = DB::table('categories')->where('isDigging', 1)->select('id', 'libelle as lib')->get();
+
+        return response()->json($data);
     }
 }

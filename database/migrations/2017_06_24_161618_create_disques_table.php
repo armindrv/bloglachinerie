@@ -18,6 +18,8 @@ class CreateDisquesTable extends Migration
             $table->increments('id');
         
             $table->string('disque_title');
+
+            $table->string('image_url', 50);
         
             $table->integer('label_id')->unsigned();
         

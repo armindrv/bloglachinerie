@@ -20,6 +20,8 @@ class CreateCategoriesTable extends Migration
             $table->string('libelle');
 
             $table->boolean('isLocale');
+
+            $table->boolean('isDigging');
          
             $table->timestamps();
         
