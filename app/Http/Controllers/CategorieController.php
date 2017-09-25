@@ -34,4 +34,10 @@ class CategorieController extends Controller
 
         return response()->json($data);
     }
+
+    public function getDiggingByID($id) {
+        $data = DB::table('categories')->where('id', $id)->select('url_channel')->get();
+
+        return response()->json($data);
+    }
 }
