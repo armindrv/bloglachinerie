@@ -123,19 +123,27 @@ DROP TABLE IF EXISTS `artistes`;
 CREATE TABLE IF NOT EXISTS `artistes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `biographie` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sc_link` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img_url` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `biographie` text COLLATE utf8mb4_unicode_ci,
+  `sc_link` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `img_url` varchar(300) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `isRoaster` int(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.artistes : ~2 rows (environ)
+-- Export de données de la table lachinerie.artistes : ~9 rows (environ)
 /*!40000 ALTER TABLE `artistes` DISABLE KEYS */;
-INSERT INTO `artistes` (`id`, `name`, `biographie`, `sc_link`, `img_url`, `created_at`, `updated_at`) VALUES
-	(1, 'Sweely', '', '', '', '2017-06-25 00:36:31', '2017-06-25 00:36:31'),
-	(2, 'DJ Lettuce', '', '', '', '2017-06-25 00:36:47', '2017-06-25 00:36:47');
+INSERT INTO `artistes` (`id`, `name`, `biographie`, `sc_link`, `img_url`, `isRoaster`, `created_at`, `updated_at`) VALUES
+	(1, 'Sweely', '', '', '', 0, '2017-06-25 00:36:31', '2017-06-25 00:36:31'),
+	(2, 'DJ Lettuce', '', '', '', 0, '2017-06-25 00:36:47', '2017-06-25 00:36:47'),
+	(3, 'G\'Boï & Jean Mi', ' ', 'https://soundcloud.com/gboi_jeanmi', 'resources/img/artistes/gboietjeanmi.png', 1, '2017-09-25 09:12:03', '2017-09-25 09:12:03'),
+	(4, 'G2S', '', 'https://soundcloud.com/g2slyon', 'resources/img/artistes/g2s.jpg', 1, '2017-09-25 09:14:41', '2017-09-25 09:14:42'),
+	(5, 'Malouane', NULL, 'https://soundcloud.com/malouane', 'resources/img/artistes/malouane.jpg', 1, '2017-09-25 09:16:04', '2017-09-25 09:16:05'),
+	(6, 'Kaffe Crème', NULL, 'https://soundcloud.com/kaffecreme', 'resources/img/artistes/kaffecreme.jpg', 1, '2017-09-25 09:16:53', '2017-09-25 09:16:53'),
+	(7, 'Marina Trench', NULL, 'https://soundcloud.com/marinatrench', 'resources/img/artistes/marinatrench.jpg', 1, '2017-09-25 09:17:07', '2017-09-25 09:17:07'),
+	(8, 'Pascal Viscardi', NULL, 'https://soundcloud.com/pascalviscardi', 'resources/img/artistes/pascalviscardi.jpg', 1, '2017-09-25 09:17:24', '2017-09-25 09:17:25'),
+	(9, 'César & Jason', NULL, 'https://soundcloud.com/cez-jazz', 'resources/img/artistes/cesaretjason.jpg', 1, '2017-09-25 09:17:39', '2017-09-25 09:17:39');
 /*!40000 ALTER TABLE `artistes` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. categories
@@ -145,21 +153,23 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `libelle` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isLocale` int(1) NOT NULL DEFAULT '0',
   `isDigging` int(1) NOT NULL DEFAULT '0',
+  `url_channel` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Export de données de la table lachinerie.categories : ~7 rows (environ)
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` (`id`, `libelle`, `isLocale`, `isDigging`, `created_at`, `updated_at`) VALUES
-	(1, 'House', 0, 1, '2017-06-25 00:37:01', '2017-06-25 00:37:01'),
-	(2, 'Techno', 0, 1, '2017-06-25 00:37:05', '2017-06-25 00:37:06'),
-	(3, 'Lyon', 1, 0, '2017-06-25 00:37:13', '2017-06-25 00:37:14'),
-	(4, 'Evènement', 0, 0, '2017-06-25 00:37:36', '2017-06-25 00:37:36'),
-	(5, 'Gear', 0, 0, '2017-06-25 00:37:43', '2017-06-25 00:37:43'),
-	(6, 'Toulouse', 1, 0, '2017-07-05 10:14:26', '2017-07-05 10:14:27'),
-	(7, 'Paris', 1, 0, '2017-07-05 10:14:42', '2017-07-05 10:14:42');
+INSERT INTO `categories` (`id`, `libelle`, `isLocale`, `isDigging`, `url_channel`, `created_at`, `updated_at`) VALUES
+	(1, 'House', 0, 1, 'UCUHUK_4P6HMN7RS1XsiU-8w', '2017-06-25 00:37:01', '2017-06-25 00:37:01'),
+	(2, 'Techno', 0, 1, 'UCgrhHLJolFoe1OcdC5CGJMA', '2017-06-25 00:37:05', '2017-06-25 00:37:06'),
+	(3, 'Lyon', 1, 0, '0', '2017-06-25 00:37:13', '2017-06-25 00:37:14'),
+	(4, 'Evènement', 0, 0, '0', '2017-06-25 00:37:36', '2017-06-25 00:37:36'),
+	(5, 'Gear', 0, 0, '0', '2017-06-25 00:37:43', '2017-06-25 00:37:43'),
+	(6, 'Toulouse', 1, 0, '0', '2017-07-05 10:14:26', '2017-07-05 10:14:27'),
+	(7, 'Paris', 1, 0, '0', '2017-07-05 10:14:42', '2017-07-05 10:14:42'),
+	(8, 'Beau Mot Plage', 0, 1, 'UC4mIwBMiAz1V4u4203oISWA', '2017-09-25 09:43:32', '2017-09-25 09:43:32');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. categorie_users
