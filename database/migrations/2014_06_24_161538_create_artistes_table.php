@@ -25,6 +25,8 @@ class CreateArtistesTable extends Migration
 
             $table->text('biographie');
 
+            $table->boolean('isRoaster');
+
             $table->timestamps();
         
         });

@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.categories : ~7 rows (environ)
+-- Export de données de la table lachinerie.categories : ~8 rows (environ)
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 INSERT INTO `categories` (`id`, `libelle`, `isLocale`, `isDigging`, `url_channel`, `created_at`, `updated_at`) VALUES
 	(1, 'House', 0, 1, 'UCUHUK_4P6HMN7RS1XsiU-8w', '2017-06-25 00:37:01', '2017-06-25 00:37:01'),
@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `disques` (
   CONSTRAINT `disques_label_id_foreign` FOREIGN KEY (`label_id`) REFERENCES `labels` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.disques : ~2 rows (environ)
+-- Export de données de la table lachinerie.disques : ~3 rows (environ)
 /*!40000 ALTER TABLE `disques` DISABLE KEYS */;
 INSERT INTO `disques` (`id`, `disque_title`, `label_id`, `image_url`, `created_at`, `updated_at`) VALUES
 	(1, 'Calm Down Homie', 1, 'resources/img/disques/1/1.jpg', '2017-06-25 00:48:37', '2017-06-25 00:48:38'),
@@ -242,7 +242,11 @@ INSERT INTO `disque_titres` (`id`, `track_number`, `disque_id`, `titre_id`, `cre
 	(5, 'A1', 2, 1, '2017-06-25 00:50:21', '2017-06-25 00:50:22'),
 	(6, 'A2', 2, 2, '2017-06-25 00:50:21', '2017-06-25 00:50:22'),
 	(7, 'B1', 2, 3, '2017-06-25 00:50:21', '2017-06-25 00:50:22'),
-	(8, 'B2', 2, 4, '2017-06-25 00:50:21', '2017-06-25 00:50:22');
+	(8, 'B2', 2, 4, '2017-06-25 00:50:21', '2017-06-25 00:50:22'),
+	(9, 'A1', 3, 9, '2017-09-25 09:57:25', '2017-09-25 09:57:25'),
+	(10, 'A2', 3, 10, '2017-09-25 09:57:44', '2017-09-25 09:57:45'),
+	(11, 'B1', 3, 11, '2017-09-25 09:58:01', '2017-09-25 09:58:02'),
+	(12, 'B2', 3, 12, '2017-09-25 09:58:26', '2017-09-25 09:58:26');
 /*!40000 ALTER TABLE `disque_titres` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. droits
@@ -321,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.migrations : ~16 rows (environ)
+-- Export de données de la table lachinerie.migrations : ~17 rows (environ)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(54, '2014_06_24_161538_create_artistes_table', 1),
@@ -487,7 +491,11 @@ INSERT INTO `titres` (`id`, `track_title`, `mp3_url`, `created_at`, `updated_at`
 	(5, 'Please Stay', 'resources/titles/1/a1_please_stay', '2017-06-25 00:41:11', '2017-06-25 00:41:12'),
 	(6, 'I Gotta Keep On', 'resources/titles/1/a2_i_gotta_keep_on', '2017-06-25 00:41:29', '2017-06-25 00:41:30'),
 	(7, 'Break Down', 'resources/titles/1/b1_break_down', '2017-06-25 00:41:41', '2017-06-25 00:41:41'),
-	(8, 'On The Run', 'resources/titles/1/b2_on_the_run', '2017-06-25 00:41:53', '2017-06-25 00:41:53');
+	(8, 'On The Run', 'resources/titles/1/b2_on_the_run', '2017-06-25 00:41:53', '2017-06-25 00:41:53'),
+	(9, 'Le Breakbeat tranquille', 'resources/titles/3/a1_le_breat_tranquille.mp3', '2017-09-25 09:54:50', '2017-09-25 09:54:51'),
+	(10, 'Jungle Diese', 'resources/titles/3/a2_jungle_diese_2.mp3', '2017-09-25 09:55:29', '2017-09-25 09:55:29'),
+	(11, 'Echantillons du Parrain', 'resources/titles/3/b1_echantillons_du_parrain.mp3', '2017-09-25 09:56:01', '2017-09-25 09:56:02'),
+	(12, '60 rue de mes couilles', 'resources/titles/3/b2_60_rue_de_mes_couilles.mp3', '2017-09-25 09:56:49', '2017-09-25 09:56:49');
 /*!40000 ALTER TABLE `titres` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. titre_artistes
@@ -534,7 +542,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.users : ~2 rows (environ)
+-- Export de données de la table lachinerie.users : ~3 rows (environ)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `firstname`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'xNWiaYgWzd', 'MVkWprxm5i', 'test@gmail.com', '123456', 3, NULL, NULL, NULL),

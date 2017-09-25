@@ -22,6 +22,8 @@ class CreateCategoriesTable extends Migration
             $table->boolean('isLocale');
 
             $table->boolean('isDigging');
+
+            $table->string('url_channel', 300);
          
             $table->timestamps();
         
