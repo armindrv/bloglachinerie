@@ -35,6 +35,10 @@ Route::get('/all_categories', 'CategorieController@getCategories');
 
 Route::get('/categoriesDigging', 'CategorieController@getCategoriesDigging');
 
+// Récupère l'id de la chaine youtube de la catégorie
+
+Route::get('/get_youtube_channel/{id}', 'CategorieController@getDiggingByID');
+
 //#################################	  ARTICLES   ###########################################
 
 
