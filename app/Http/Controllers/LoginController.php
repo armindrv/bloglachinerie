@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\User;
 
@@ -60,6 +60,26 @@ class LoginController extends Controller
             return response()->json(false);
         }
     }
+
+    public function getConnectedUser() {
+       
+        if (Auth::check()) {
+            $id = Auth::id();
+
+             $data = DB::table('users')
+            ->join('categorie_users', 'users.id', 'categorie_users.user_id')
+            ->where('categorie_users.user_id', $id)
+            ->select('categorie_users.categorie_id', 'categorie_users.user_id', 'users.role_id')
+            ->get();
+
+        return response()->json($data);
+
+        } else {
+            return response()->json(false);
+        }
+        
+
+    }   
 
     // Retourne tous les articles des catégories liées à l'utilisateur (modérateur/admin)
     public function getArticlesFromUser($id) {

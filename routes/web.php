@@ -71,7 +71,17 @@ Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
 
 //#################################	  USERS   ###########################################
 
+ // Insère un nouvel utilisateur en base
+
+ Route::post('/signup', 'LoginController@SignUp');
+
+ // Connecte un utilisateur
+
  Route::post('/login', 'LoginController@login');
+
+ // Retourne les infos relatives à l'utilisiteur connecté
+
+ Route::get('/get_user', 'LoginController@getConnectedUser');
 
  //		-----	ADMIN -----
 
