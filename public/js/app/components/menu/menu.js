@@ -3,8 +3,8 @@ angular
     .module('chineurs')
     .controller('menuCtrl', menuCtrl);
 
-menuCtrl.$inject = ['menuService','blogCategories','sceneCategories','$state','authService'];
-function menuCtrl(menuService,blogCategories,sceneCategories,$state,authService) {
+menuCtrl.$inject = ['menuService','blogCategories','diggingCategories','sceneCategories','$state','authService'];
+function menuCtrl(menuService,blogCategories,diggingCategories,sceneCategories,$state,authService) {
 
     var menu = this;
 
@@ -23,6 +23,8 @@ function menuCtrl(menuService,blogCategories,sceneCategories,$state,authService)
 
 
     menu.blogItems = blogCategories;
+    menu.diggingItems = diggingCategories;
+    console.log(menu.diggingItems);
     menu.sceneItems  = sceneCategories;
 
     menu.login = function(){
@@ -32,6 +34,10 @@ function menuCtrl(menuService,blogCategories,sceneCategories,$state,authService)
     menu.logoff = function(){
         authService.logout();
         getAuthData();
+    }
+
+    menu.goToDigging = function(id,lib){
+        $state.go("menu.digging",{"id":id,"lib":lib});
     }
 
     menu.moderation = function(){

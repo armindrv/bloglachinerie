@@ -13,5 +13,7 @@
     </div>
 
     <button type="button" class="btn btn-primary" ng-click="login.auth(loginData.email,loginData.password)">Se connecter</button>
+    <p ng-if="!login.correct">Indentifiants incorrects</p>
+    <a ui-sref="inscription">Inscription</a>
 
 </div>

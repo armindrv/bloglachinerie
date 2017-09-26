@@ -11,8 +11,54 @@ angular
     .factory('disqueService',disqueService)
     .factory('publicationService',publicationService)
     .factory('artistesService',artistesService)
+    .factory('diggingService',diggingService)
+    .factory('inscriptionService',inscriptionService)
     .factory('labelService',labelService);
 
+
+
+inscriptionService.$inject = ['$http'];
+function inscriptionService($http){
+    var inscriptionService = {};
+
+    inscriptionService.inscription = function(data){
+        $http({
+            method: 'POST',
+            url: './signup',
+            data: data,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function (response) {
+            console.log(response);
+        });
+    }
+
+    return inscriptionService;
+}
+
+
+diggingService.$inject = ['$http'];
+function diggingService($http){
+    var diggingService = {};
+
+
+    diggingService.getChannelId = function(id){
+
+        // $http.get("get_youtube_channel/"+id).then(function(response){
+        //     var channel = response.data[0].url_channel;
+        //     return $http.get("https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId="+channel+"&key=AIzaSyAnvhgRi09RUGMxnQoux0WitkqJqEKaM0M");
+        // });
+
+        return $http.get("get_youtube_channel/"+id);
+
+    }
+
+
+    diggingService.getPlaylistByChannelId = function(channelId){
+        return $http.get("https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId="+channelId+"&key=AIzaSyAnvhgRi09RUGMxnQoux0WitkqJqEKaM0M");
+    }
+
+    return diggingService;
+}
 
 
 artistesService.$inject = ['$http'];
@@ -21,59 +67,12 @@ function artistesService($http){
 
 
     artistesService.getArtisteById = function(id){
-        return {
-            "id" : 1,
-            "image_url" : "resources/img/1/1.png",
-            "nom" : "artiste1",
-            "biographie" : "Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui.",
-            "sc_link" : "https://soundcloud.com/postmalone"
-        }
+        console.log(id);
+        return $http.get("artiste/"+id);
     }
 
     artistesService.getAllArtistes = function(){
-
-        return {
-            "01" : {
-                "id" : 1,
-                "image_url" : "resources/img/1/1.png",
-                "nom" : "artiste1"
-            },
-            "02" : {
-                "id" : 2,
-                "image_url" : "resources/img/2/2.png",
-                "nom" : "artiste2"
-            },
-            "03" : {
-                "id" : 3,
-                "image_url" : "resources/img/3/3.png",
-                "nom" : "artiste3"
-            },
-            "04" : {
-                "id" : 4,
-                "image_url" : "resources/img/4/4.png",
-                "nom" : "artiste4"
-            },
-            "05" : {
-                "id" : 5,
-                "image_url" : "resources/img/1/1.png",
-                "nom" : "artiste5"
-            },
-            "06" : {
-                "id" : 6,
-                "image_url" : "resources/img/2/2.png",
-                "nom" : "artiste6"
-            },
-            "07" : {
-                "id" : 7,
-                "image_url" : "resources/img/3/3.png",
-                "nom" : "artiste7"
-            },
-            "08" : {
-                "id" : 8,
-                "image_url" : "resources/img/4/4.png",
-                "nom" : "artiste8"
-            }
-        }
+        return $http.get("artistes/all");
     }
     return artistesService;
 }
@@ -168,7 +167,7 @@ function authService($http,$state){
                 console.log(authService.userData);
                 $state.go('menu.home')
             }else{
-                console.log("not logged");
+                return false;
             }
         });
     }
@@ -241,6 +240,10 @@ function menuService($http){
     var menuService = {};
 
     menuService.test = "menu service test";
+
+    menuService.getCategoriesDigging = function(){
+        return $http.get("categoriesDigging");
+    }
 
     menuService.getCategoriesBlog = function(){
         return $http.get("categoriesBlog");

@@ -7,9 +7,9 @@ function artistesCtrl(artistesData,$state){
 
     var artistes = this;
     artistes.artistesData = artistesData;
-    artistes.test = "page artistes !"
+    console.log(artistes.artistesData);
 
     artistes.gotToArtiste = function(idArtiste){
-        $state.go("menu.artiste",{ "id": idArtiste});
+        $state.go("menu.artiste",{"id": idArtiste});
     }
 }

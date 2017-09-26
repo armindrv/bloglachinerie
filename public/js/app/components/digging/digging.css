@@ -1,0 +1,18 @@
+.playlist {
+    text-align: center;
+}
+
+.playlist iframe {
+    width: 80%;
+    height: 400px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 550px) {
+    .playlist {
+        visibility: hidden;
+    }
+
+}

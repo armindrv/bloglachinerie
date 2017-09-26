@@ -1,0 +1,12 @@
+<div class="row article-title">
+    <div class="col-xs-12">
+        <h2>Playlists {{digging.title}}</h2>
+        <div class="text-underline"></div>
+    </div>
+</div>
+
+
+<div ng-repeat="playlist in digging.playlistUrls" class="col-xs-12 playlist">
+    <h4 class="playlist-title">{{playlist.titr1e}}</h4>
+    <iframe class="playlist" ng-src="{{playlist.url}}" frameborder="0" allowfullscreen>
+</div>

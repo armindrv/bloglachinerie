@@ -3,8 +3,8 @@ angular
     .module('chineurs')
     .controller('publicationCtrl', publicationCtrl);
 
-publicationCtrl.$inject = ['publicationService','$scope','categories'];
-function publicationCtrl(publicationService,$scope,categories) {
+publicationCtrl.$inject = ['publicationService','$scope','categories','$state'];
+function publicationCtrl(publicationService,$scope,categories,$state) {
 
     var publication = this;
 
@@ -56,6 +56,7 @@ function publicationCtrl(publicationService,$scope,categories) {
                 publication.description,
                 categoriesArray
             );
+            $state.go("menu.merci");
         }else{
             publication.formIncomplete = true;
         }

@@ -25,6 +25,13 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
                         return response.data;
                     });
                 },
+                diggingCategories : function(menuService){
+                    return menuService.getCategoriesDigging()
+                    .then(function(response){
+
+                        return response.data;
+                    });
+                },
                 menuService : function(menuService){
                     menuService.getCategoriesBlog()
                     return menuService;
@@ -59,18 +66,44 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             controller : 'artistesCtrl as artistes',
             resolve : {
                 artistes : function(artistesService){
-                    return artistesService.getAllArtistes();
+                    return artistesService.getAllArtistes()
+                    .then(function(response){
+                        return response.data;
+                    });
                 }
             }
         })
 
+
+        .state('menu.digging',{
+            url : '/digging/:id:lib',
+            templateUrl : 'public/js/app/components/digging/digging.html',
+            controller : 'diggingCtrl as digging',
+            resolve : {
+                playlists : function(diggingService,$stateParams){
+                    return diggingService.getChannelId($stateParams.id)
+                    .then(function(response){
+                        var channelId = response.data[0].url_channel;
+                        return diggingService.getPlaylistByChannelId(channelId)
+                        .then(function(response){
+                            return response.data.items;
+                        });
+                    });
+                }
+            }
+
+        })
+
         .state('menu.artiste',{
-            url : '/artiste',
+            url : '/artiste/:id',
             templateUrl : 'public/js/app/components/artiste/artiste.html',
             controller : 'artisteCtrl as artiste',
             resolve : {
                 artiste : function(artistesService,$stateParams){
-                    return artistesService.getArtisteById($stateParams.id);
+                    return artistesService.getArtisteById($stateParams.id)
+                    .then(function(response){
+                        return response.data[0];
+                    })
                 }
             }
         })
@@ -237,10 +270,28 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
         // })
 
 
+        .state('inscription',{
+            url : '/inscription',
+            templateUrl : 'public/js/app/components/inscription/inscription.html',
+            controller : 'inscriptionCtrl as inscription',
+            resolve : {
+                inscriptionService: function(inscriptionService){
+                    return inscriptionService;
+                },
+            }
+        })
+
+
         .state('login',{
             url : '/login',
             templateUrl : 'public/js/app/components/login/login.html',
             controller : 'loginCtrl as login',
+        })
+
+        .state('menu.merci',{
+            url : '/merci',
+            templateUrl : 'public/js/app/components/publication/merci.html',
+            controller : 'publicationCtrl as publication'
         })
 
         .state('menu.publication',{

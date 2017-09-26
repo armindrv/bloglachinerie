@@ -16,6 +16,9 @@
         <link rel="stylesheet" href="public/js/app/components/disque/disque.css">
         <link rel="stylesheet" href="public/js/app/components/publication/publication.css">
         <link rel="stylesheet" href="public/js/app/components/artiste/artiste.css">
+        <link rel="stylesheet" href="public/js/app/components/digging/digging.css">
+        <link rel="stylesheet" href="public/js/app/components/inscription/inscription.css">
+
 
 
 
@@ -56,6 +59,8 @@
         <script src="public/js/app/components/publication/publication.js"></script>
         <script src="public/js/app/components/artistes/artistes.js"></script>
         <script src="public/js/app/components/artiste/artiste.js"></script>
+        <script src="public/js/app/components/digging/digging.js"></script>
+        <script src="public/js/app/components/inscription/inscription.js"></script>
 
 
     </head>

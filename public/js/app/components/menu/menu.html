@@ -39,10 +39,10 @@
           <li class="dropdown" ng-class="{active:selectedLink == 5}" ng-click="selectedLink = 5">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Digging<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li ng-repeat="item in menu.blogItems" ><a ng-click="menu.goToCategorie(item.id,item.lib)">{{item.lib}}</a></li>
+              <li ng-repeat="item in menu.diggingItems" ng-click="menu.goToDigging(item.id,item.lib)"><a>{{item.lib}}</a></li>
             </ul>
           </li>
-          <li ng-class="{active:selectedLink == 6}" ng-click="selectedLink = 6"><a href="#">Shop</a></li>
+          <li ng-class="{active:selectedLink == 6}" ng-click="selectedLink = 6"><a href="https://shop.lachinerie.fr/">Shop</a></li>
           <li ng-class="{active:selectedLink == 7}" ng-click="selectedLink = 7"><a ng-click="menu.goToPublication()">Nous écrire</a></li>
           <li ng-if="menu.userRole != 4"
           ng-class="{active:selectedLink == 8}" ng-click="selectedLink = 8"><a ng-click="menu.moderation()">Administration des articles</a></li>

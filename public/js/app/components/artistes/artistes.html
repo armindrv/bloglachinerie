@@ -8,9 +8,9 @@
     ng-repeat="artiste in artistes.artistesData">
         <div class="card"
         ng-click="artistes.gotToArtiste(artiste.id)">
-          <img class="card-img-top" ng-src="{{artiste.image_url}}">
+          <img class="card-img-top" ng-src="{{artiste.img_url}}">
           <div class="card-block">
-            <h4 class="card-title">{{artiste.nom}}</h4>
+            <h4 class="card-title">{{artiste.name}}</h4>
             <!-- <p class="card-text">{{article.description | limitTo:50 }}</p> -->
           </div>
         </div>

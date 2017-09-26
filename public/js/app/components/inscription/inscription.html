@@ -1,0 +1,33 @@
+<div class="login-container">
+
+    <h3>Inscription</h3>
+
+    <div class="form-group">
+      <label for="usr">Prénom</label>
+      <input type="text" class="form-control" id="usr" ng-model="inscription.data.prenom">
+    </div>
+
+    <div class="form-group">
+      <label for="usr">Nom</label>
+      <input type="text" class="form-control" id="usr" ng-model="inscription.data.nom">
+    </div>
+
+    <div class="form-group">
+      <label for="usr">E-mail</label>
+      <input type="text" class="form-control" id="usr" ng-model="inscription.data.email">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Mot de passe</label>
+      <input type="password" class="form-control" id="pwd" ng-model="inscription.data.pass">
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Re tapper mot de passe</label>
+      <input type="password" class="form-control" id="pwd" ng-model="inscription.data.passverif">
+    </div>
+
+    <button type="button" class="btn btn-primary" ng-click="inscription.sendInscription()">Inscription</button>
+    <p ng-if="inscription.complete">informations incorrectes</p>
+
+</div>

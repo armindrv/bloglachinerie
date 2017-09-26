@@ -8,8 +8,9 @@ loginCtrl.$inject = ['authService','$state'];
 function loginCtrl(authService,$state) {
 
     var login = this;
+    login.correct = true;
 
     login.auth = function(email,password){
-        authService.login(email,password);
+        login.correct = authService.login(email,password);
     }
 }
