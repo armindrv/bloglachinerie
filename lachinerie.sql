@@ -27,16 +27,18 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.articles : ~5 rows (environ)
+-- Export de données de la table lachinerie.articles : ~7 rows (environ)
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
 INSERT INTO `articles` (`id`, `title`, `description`, `statut`, `created_at`, `updated_at`) VALUES
 	(1, 'CHOC : Ben Klock n\'a jamais su mixer !', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', 1, '2017-06-24 22:53:56', '2017-06-24 22:53:57'),
 	(2, 'Quelle platine pour mon pitichat ?', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', 1, '2017-06-24 22:54:16', '2017-06-24 22:54:16'),
 	(3, 'Kerry Chandler de retour à Lyon !', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', 0, '2017-06-24 22:54:49', '2017-06-24 22:54:49'),
 	(4, 'Grosse sortie sur Yoyaku', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', 1, '2017-06-24 22:55:14', '2017-06-24 22:55:14'),
-	(34, 'HELLO STARF', 'HELLLLO STAARRF', NULL, '2017-10-23 07:58:56', '2017-10-23 07:58:56');
+	(34, 'HELLO STARF', 'HELLLLO STAARRF', NULL, '2017-10-23 07:58:56', '2017-10-23 07:58:56'),
+	(35, 'starf', 'tarfs', NULL, '2017-10-23 08:18:15', '2017-10-23 08:18:15'),
+	(36, 'sdxfcgvhjn,k', 'qsdfghjk', NULL, '2017-10-23 08:57:32', '2017-10-23 08:57:32');
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. article_categories
@@ -52,9 +54,9 @@ CREATE TABLE IF NOT EXISTS `article_categories` (
   KEY `article_categories_categorie_id_foreign` (`categorie_id`),
   CONSTRAINT `article_categories_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
   CONSTRAINT `article_categories_categorie_id_foreign` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.article_categories : ~9 rows (environ)
+-- Export de données de la table lachinerie.article_categories : ~12 rows (environ)
 /*!40000 ALTER TABLE `article_categories` DISABLE KEYS */;
 INSERT INTO `article_categories` (`id`, `categorie_id`, `article_id`, `created_at`, `updated_at`) VALUES
 	(1, 4, 3, '2017-06-25 00:55:57', '2017-06-25 00:55:58'),
@@ -65,7 +67,10 @@ INSERT INTO `article_categories` (`id`, `categorie_id`, `article_id`, `created_a
 	(6, 1, 4, '2017-06-25 00:56:42', '2017-06-25 00:56:42'),
 	(36, 1, 34, '2017-10-23 07:58:57', '2017-10-23 07:58:57'),
 	(37, 4, 34, '2017-10-23 07:58:58', '2017-10-23 07:58:58'),
-	(38, 6, 34, '2017-10-23 07:58:58', '2017-10-23 07:58:58');
+	(38, 6, 34, '2017-10-23 07:58:58', '2017-10-23 07:58:58'),
+	(39, 1, 35, '2017-10-23 08:18:15', '2017-10-23 08:18:15'),
+	(40, 3, 35, '2017-10-23 08:18:16', '2017-10-23 08:18:16'),
+	(41, 1, 36, '2017-10-23 08:57:33', '2017-10-23 08:57:33');
 /*!40000 ALTER TABLE `article_categories` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. artistes
@@ -273,9 +278,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.migrations : ~16 rows (environ)
+-- Export de données de la table lachinerie.migrations : ~17 rows (environ)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(54, '2014_06_24_161538_create_artistes_table', 1),
@@ -294,7 +299,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(67, '2017_06_24_162249_create_sections_table', 1),
 	(70, '2014_06_24_153140_create_articles_table', 2),
 	(71, '2017_06_24_221404_create_titre_artistes_table', 3),
-	(72, '2017_07_22_140914_create_categorie_users_table', 4);
+	(72, '2017_07_22_140914_create_categorie_users_table', 4),
+	(73, '2017_09_26_084328_create_sessions_table', 5);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. password_resets
@@ -344,9 +350,9 @@ CREATE TABLE IF NOT EXISTS `sections` (
   KEY `sections_article_id_foreign` (`article_id`),
   CONSTRAINT `sections_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
   CONSTRAINT `sections_typesection_id_foreign` FOREIGN KEY (`typeSection_id`) REFERENCES `section_types` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.sections : ~10 rows (environ)
+-- Export de données de la table lachinerie.sections : ~14 rows (environ)
 /*!40000 ALTER TABLE `sections` DISABLE KEYS */;
 INSERT INTO `sections` (`id`, `content`, `article_id`, `typeSection_id`, `created_at`, `updated_at`) VALUES
 	(1, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?', 1, 1, '2017-07-05 11:46:29', '2017-07-05 11:46:30'),
@@ -358,7 +364,11 @@ INSERT INTO `sections` (`id`, `content`, `article_id`, `typeSection_id`, `create
 	(7, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?', 4, 1, '2017-07-05 14:13:13', '2017-07-05 14:13:14'),
 	(8, 'resources/img/articles/4/4.png', 4, 2, '2017-07-05 14:13:41', '2017-07-05 14:13:42'),
 	(57, '<blockquote><p>STARRRRRRFFFFFFFF<br/></p></blockquote>', 34, 1, '2017-10-23 07:58:57', '2017-10-23 07:58:57'),
-	(58, '/resources/img/articles/34/34.png', 34, 2, '2017-10-23 07:58:57', '2017-10-23 07:58:57');
+	(58, '/resources/img/articles/34/34.png', 34, 2, '2017-10-23 07:58:57', '2017-10-23 07:58:57'),
+	(59, '<p>starf<br/></p>', 35, 1, '2017-10-23 08:18:15', '2017-10-23 08:18:15'),
+	(60, 'resources/img/articles/35/35.png', 35, 2, '2017-10-23 08:18:15', '2017-10-23 08:18:15'),
+	(61, '<p>wsxdfcghjb,l;<br/></p>', 36, 1, '2017-10-23 08:57:33', '2017-10-23 08:57:33'),
+	(62, 'resources/img/articles/36/36.png', 36, 2, '2017-10-23 08:57:33', '2017-10-23 08:57:33');
 /*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. section_types
@@ -377,6 +387,24 @@ INSERT INTO `section_types` (`id`, `libelle`, `created_at`, `updated_at`) VALUES
 	(1, 'Texte', '2017-06-25 00:40:01', '2017-06-25 00:40:01'),
 	(2, 'Image', '2017-06-25 00:40:05', '2017-06-25 00:40:06');
 /*!40000 ALTER TABLE `section_types` ENABLE KEYS */;
+
+-- Export de la structure de la table lachinerie. sessions
+DROP TABLE IF EXISTS `sessions`;
+CREATE TABLE IF NOT EXISTS `sessions` (
+  `id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci,
+  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_activity` int(11) NOT NULL,
+  UNIQUE KEY `sessions_id_unique` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Export de données de la table lachinerie.sessions : ~1 rows (environ)
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+	('9IHd0syGlCMiZPoVXSRiN2FUf7zCurGWjYgAKbHB', 2, '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibGJ1RXpPNllmZWJIQnhQeDhiWmVCVkQ3bE5mazBxZ1hDSVJKVTNKRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDg6Imh0dHA6Ly9sb2NhbGhvc3QvYmxvZ2xhY2hpbmVyaWUvZmlyc3RUZW5BcnRpY2xlcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==', 1508752038);
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. titres
 DROP TABLE IF EXISTS `titres`;
