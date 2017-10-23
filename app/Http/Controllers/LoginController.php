@@ -77,9 +77,11 @@ class LoginController extends Controller
         } else {
             return response()->json(false);
         }
-        
-
     }   
+
+    public function logout() {   
+        Auth::logout();
+    }
 
     // Retourne tous les articles des catégories liées à l'utilisateur (modérateur/admin)
     public function getArticlesFromUser($id) {

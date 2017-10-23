@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('index');
 });
@@ -82,6 +84,10 @@ Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
  // Retourne les infos relatives à l'utilisiteur connecté
 
  Route::get('/get_user', 'LoginController@getConnectedUser');
+
+ // Déconnecte l'utilisateur connecté
+
+ Route::get('/logout_user', 'LoginController@logout');
 
  //		-----	ADMIN -----
 
