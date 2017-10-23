@@ -108,7 +108,7 @@ class ArticleController extends Controller
         $sectionTxt->save();
 
         $sectionImg = new Section;
-        $sectionImg->content = $content;
+        $sectionImg->content = $path_to_img;
         $sectionImg->typeSection_id = 2;
         $sectionImg->article_id = $artID;
         $sectionImg->save();

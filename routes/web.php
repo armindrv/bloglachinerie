@@ -73,7 +73,7 @@ Route::get('/disques/{disque_id}', 'DisqueController@getDisque');
 
  // Insère un nouvel utilisateur en base
 
- Route::post('/signup', 'LoginController@SignUp');
+ Route::post('/signup', 'LoginController@signUp');
 
  // Connecte un utilisateur
 

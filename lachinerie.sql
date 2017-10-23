@@ -27,43 +27,16 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.articles : ~32 rows (environ)
+-- Export de données de la table lachinerie.articles : ~5 rows (environ)
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
 INSERT INTO `articles` (`id`, `title`, `description`, `statut`, `created_at`, `updated_at`) VALUES
 	(1, 'CHOC : Ben Klock n\'a jamais su mixer !', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', 1, '2017-06-24 22:53:56', '2017-06-24 22:53:57'),
 	(2, 'Quelle platine pour mon pitichat ?', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', 1, '2017-06-24 22:54:16', '2017-06-24 22:54:16'),
 	(3, 'Kerry Chandler de retour à Lyon !', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', 0, '2017-06-24 22:54:49', '2017-06-24 22:54:49'),
 	(4, 'Grosse sortie sur Yoyaku', 'accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat', 1, '2017-06-24 22:55:14', '2017-06-24 22:55:14'),
-	(5, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(6, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(7, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(8, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(9, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(10, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(11, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(12, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(13, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(14, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(15, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(16, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(17, 'blablabla', 'albalbalb', NULL, '2017-09-20 19:43:09', '2017-09-20 19:43:09'),
-	(18, 'blablabla', 'albalbalb', NULL, NULL, NULL),
-	(19, 'blablabla', 'albalbalb', NULL, '2017-09-20 19:45:07', '2017-09-20 19:45:07'),
-	(20, 'blablabla', 'albalbalb', NULL, '2017-09-22 17:59:10', '2017-09-22 17:59:10'),
-	(21, 'deqfsrgdhfjhk', 'sqdfgh,j;h,hngbfd dgfdg', NULL, '2017-09-22 18:35:20', '2017-09-22 18:35:20'),
-	(22, '"zretdyufgihlj', 'dthxfy rdthr htrhrthdrth rdt', NULL, '2017-09-22 18:36:34', '2017-09-22 18:36:34'),
-	(23, 'FDSGJKLM', 'SRTEDUKGILOH', NULL, '2017-09-22 18:46:45', '2017-09-22 18:46:45'),
-	(24, 'FDSGJKLM', 'SRTEDUKGILOH', NULL, '2017-09-22 18:48:17', '2017-09-22 18:48:17'),
-	(25, 'FDSGJKLM', 'SELECT * FROM users WHERE username = \'admin\' OR 1=1', NULL, '2017-09-22 18:59:32', '2017-09-22 18:59:32'),
-	(26, 'FDSGJKLM', 'SELECT * FROM users WHERE username = \'admin\' OR 1=1', NULL, '2017-09-22 19:00:26', '2017-09-22 19:00:26'),
-	(27, 'FDSGJKLM', 'SELECT * FROM users WHERE username = \'admin\' OR 1=1', NULL, '2017-09-22 19:00:28', '2017-09-22 19:00:28'),
-	(28, 'FDSGJKLM', 'sgfjlkm', NULL, '2017-09-22 19:01:11', '2017-09-22 19:01:11'),
-	(29, 'SELECT * FROM users WHERE username = \'admin\' OR 1=1', 'dqfghkm', NULL, '2017-09-22 19:03:59', '2017-09-22 19:03:59'),
-	(30, 'SELECT * FROM users WHERE name = \'admin\' OR 1=1', 'dqfghkm', NULL, '2017-09-22 19:04:31', '2017-09-22 19:04:31'),
-	(31, 'sdfdvvf', 'UPDATE `artiste` set `name` = \'hello\' where `id` = 1', NULL, '2017-09-22 19:18:56', '2017-09-22 19:18:56'),
-	(32, 'sdfdvvf', 'UPDATE `artistes` set `name` = \'hello\' where `id` = 1', NULL, '2017-09-22 19:19:52', '2017-09-22 19:19:52');
+	(34, 'HELLO STARF', 'HELLLLO STAARRF', NULL, '2017-10-23 07:58:56', '2017-10-23 07:58:56');
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. article_categories
@@ -79,9 +52,9 @@ CREATE TABLE IF NOT EXISTS `article_categories` (
   KEY `article_categories_categorie_id_foreign` (`categorie_id`),
   CONSTRAINT `article_categories_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
   CONSTRAINT `article_categories_categorie_id_foreign` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.article_categories : ~32 rows (environ)
+-- Export de données de la table lachinerie.article_categories : ~9 rows (environ)
 /*!40000 ALTER TABLE `article_categories` DISABLE KEYS */;
 INSERT INTO `article_categories` (`id`, `categorie_id`, `article_id`, `created_at`, `updated_at`) VALUES
 	(1, 4, 3, '2017-06-25 00:55:57', '2017-06-25 00:55:58'),
@@ -90,32 +63,9 @@ INSERT INTO `article_categories` (`id`, `categorie_id`, `article_id`, `created_a
 	(4, 2, 1, '2017-06-25 00:56:25', '2017-06-25 00:56:26'),
 	(5, 5, 2, '2017-06-25 00:56:34', '2017-06-25 00:56:34'),
 	(6, 1, 4, '2017-06-25 00:56:42', '2017-06-25 00:56:42'),
-	(7, 1, 22, NULL, NULL),
-	(8, 3, 22, NULL, NULL),
-	(9, 4, 22, NULL, NULL),
-	(10, 2, 24, '2017-09-22 18:48:17', '2017-09-22 18:48:17'),
-	(11, 4, 24, '2017-09-22 18:48:18', '2017-09-22 18:48:18'),
-	(12, 7, 24, '2017-09-22 18:48:18', '2017-09-22 18:48:18'),
-	(13, 2, 25, '2017-09-22 18:59:33', '2017-09-22 18:59:33'),
-	(14, 4, 25, '2017-09-22 18:59:33', '2017-09-22 18:59:33'),
-	(15, 7, 25, '2017-09-22 18:59:33', '2017-09-22 18:59:33'),
-	(16, 2, 26, '2017-09-22 19:00:27', '2017-09-22 19:00:27'),
-	(17, 4, 26, '2017-09-22 19:00:27', '2017-09-22 19:00:27'),
-	(18, 7, 26, '2017-09-22 19:00:27', '2017-09-22 19:00:27'),
-	(19, 2, 27, '2017-09-22 19:00:28', '2017-09-22 19:00:28'),
-	(20, 4, 27, '2017-09-22 19:00:28', '2017-09-22 19:00:28'),
-	(21, 7, 27, '2017-09-22 19:00:28', '2017-09-22 19:00:28'),
-	(22, 2, 28, '2017-09-22 19:01:12', '2017-09-22 19:01:12'),
-	(23, 4, 28, '2017-09-22 19:01:13', '2017-09-22 19:01:13'),
-	(24, 7, 28, '2017-09-22 19:01:13', '2017-09-22 19:01:13'),
-	(25, 2, 29, '2017-09-22 19:04:00', '2017-09-22 19:04:00'),
-	(26, 5, 29, '2017-09-22 19:04:00', '2017-09-22 19:04:00'),
-	(27, 6, 29, '2017-09-22 19:04:00', '2017-09-22 19:04:00'),
-	(28, 2, 30, '2017-09-22 19:04:32', '2017-09-22 19:04:32'),
-	(29, 5, 30, '2017-09-22 19:04:32', '2017-09-22 19:04:32'),
-	(30, 6, 30, '2017-09-22 19:04:32', '2017-09-22 19:04:32'),
-	(31, 2, 31, '2017-09-22 19:18:57', '2017-09-22 19:18:57'),
-	(32, 2, 32, '2017-09-22 19:19:54', '2017-09-22 19:19:54');
+	(36, 1, 34, '2017-10-23 07:58:57', '2017-10-23 07:58:57'),
+	(37, 4, 34, '2017-10-23 07:58:58', '2017-10-23 07:58:58'),
+	(38, 6, 34, '2017-10-23 07:58:58', '2017-10-23 07:58:58');
 /*!40000 ALTER TABLE `article_categories` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. artistes
@@ -159,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.categories : ~8 rows (environ)
+-- Export de données de la table lachinerie.categories : ~7 rows (environ)
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 INSERT INTO `categories` (`id`, `libelle`, `isLocale`, `isDigging`, `url_channel`, `created_at`, `updated_at`) VALUES
 	(1, 'House', 0, 1, 'UCUHUK_4P6HMN7RS1XsiU-8w', '2017-06-25 00:37:01', '2017-06-25 00:37:01'),
@@ -208,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `disques` (
   CONSTRAINT `disques_label_id_foreign` FOREIGN KEY (`label_id`) REFERENCES `labels` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.disques : ~3 rows (environ)
+-- Export de données de la table lachinerie.disques : ~2 rows (environ)
 /*!40000 ALTER TABLE `disques` DISABLE KEYS */;
 INSERT INTO `disques` (`id`, `disque_title`, `label_id`, `image_url`, `created_at`, `updated_at`) VALUES
 	(1, 'Calm Down Homie', 1, 'resources/img/disques/1/1.jpg', '2017-06-25 00:48:37', '2017-06-25 00:48:38'),
@@ -230,9 +180,9 @@ CREATE TABLE IF NOT EXISTS `disque_titres` (
   KEY `disque_titres_titre_id_foreign` (`titre_id`),
   CONSTRAINT `disque_titres_disque_id_foreign` FOREIGN KEY (`disque_id`) REFERENCES `disques` (`id`),
   CONSTRAINT `disque_titres_titre_id_foreign` FOREIGN KEY (`titre_id`) REFERENCES `titres` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.disque_titres : ~8 rows (environ)
+-- Export de données de la table lachinerie.disque_titres : ~11 rows (environ)
 /*!40000 ALTER TABLE `disque_titres` DISABLE KEYS */;
 INSERT INTO `disque_titres` (`id`, `track_number`, `disque_id`, `titre_id`, `created_at`, `updated_at`) VALUES
 	(1, 'A1', 1, 5, '2017-06-25 00:49:50', '2017-06-25 00:49:51'),
@@ -325,7 +275,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.migrations : ~17 rows (environ)
+-- Export de données de la table lachinerie.migrations : ~16 rows (environ)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(54, '2014_06_24_161538_create_artistes_table', 1),
@@ -394,9 +344,9 @@ CREATE TABLE IF NOT EXISTS `sections` (
   KEY `sections_article_id_foreign` (`article_id`),
   CONSTRAINT `sections_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
   CONSTRAINT `sections_typesection_id_foreign` FOREIGN KEY (`typeSection_id`) REFERENCES `section_types` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.sections : ~52 rows (environ)
+-- Export de données de la table lachinerie.sections : ~10 rows (environ)
 /*!40000 ALTER TABLE `sections` DISABLE KEYS */;
 INSERT INTO `sections` (`id`, `content`, `article_id`, `typeSection_id`, `created_at`, `updated_at`) VALUES
 	(1, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?', 1, 1, '2017-07-05 11:46:29', '2017-07-05 11:46:30'),
@@ -407,50 +357,8 @@ INSERT INTO `sections` (`id`, `content`, `article_id`, `typeSection_id`, `create
 	(6, 'resources/img/articles/3/3.png', 3, 2, '2017-07-05 14:13:41', '2017-07-05 14:13:42'),
 	(7, 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?', 4, 1, '2017-07-05 14:13:13', '2017-07-05 14:13:14'),
 	(8, 'resources/img/articles/4/4.png', 4, 2, '2017-07-05 14:13:41', '2017-07-05 14:13:42'),
-	(9, '<p>zee r ere r e<br/></p>', 7, 1, NULL, NULL),
-	(10, 'http://localhost/resources/img_7', 7, 2, NULL, NULL),
-	(11, '<p>grrg rt rddt<br/></p>', 8, 1, NULL, NULL),
-	(12, '/resources/img_8', 8, 2, NULL, NULL),
-	(13, '<p>efe dres res<br/></p>', 9, 1, NULL, NULL),
-	(14, '/resources/img_9', 9, 2, NULL, NULL),
-	(15, '<p>FRT RT ST T<span id="selectionBoundary_1505934963556_3954527719535661" class="rangySelectionBoundary">&#65279;</span><br/></p>', 10, 1, NULL, NULL),
-	(16, '/resources/img_10', 10, 2, NULL, NULL),
-	(17, '<p> rtetdrgdgd td tdht  dt<br/></p>', 11, 1, NULL, NULL),
-	(18, '/resources/img_11', 11, 2, NULL, NULL),
-	(19, '<p>rtr rt rdt retr<br/></p>', 12, 1, NULL, NULL),
-	(20, '/resources/img_12', 12, 2, NULL, NULL),
-	(21, '<p>rtr r ts(est(s<br/></p>', 13, 1, NULL, NULL),
-	(22, '/storage/img_13', 13, 2, NULL, NULL),
-	(23, '<p>rtrt e  ersdt yfhhg<br/></p>', 15, 1, NULL, NULL),
-	(24, '/resources/img_15', 15, 2, NULL, NULL),
-	(25, '<p>s(\' t\'es tttfhcfyhyh<br/></p>', 16, 1, NULL, NULL),
-	(26, '/resources/img/articles/16/img_16', 16, 2, NULL, NULL),
-	(27, '<p>ygg hg hg hyhgy ghg hg yg yv gv<br/></p>', 18, 1, NULL, NULL),
-	(28, '/resources/img/articles/18/img_18.png', 18, 2, NULL, NULL),
-	(29, '<p>xfbfb r gdgdgd tdfg<br/></p>', 19, 1, NULL, NULL),
-	(30, '/resources/img/articles/19/img_19.png', 19, 2, NULL, NULL),
-	(31, '<p>q grsrgsdtg steg setgsergseg e <br/></p>', 20, 1, NULL, NULL),
-	(32, '/resources/img/articles/20/20.png', 20, 2, NULL, NULL),
-	(35, '<p> dhfhjdr hrdhyrd</p><p> seh</p><p>etrhyrhyrhj<br/></p>', 22, 1, NULL, NULL),
-	(36, 'null', 22, 2, NULL, NULL),
-	(37, '<p>HDYJGUKHILJOKMJL<br/></p>', 24, 1, '2017-09-22 18:48:17', '2017-09-22 18:48:17'),
-	(38, '<p>HDYJGUKHILJOKMJL<br/></p>', 24, 2, '2017-09-22 18:48:17', '2017-09-22 18:48:17'),
-	(39, '<p>HDYJGUKHILJOKMJL<br/></p>', 25, 1, '2017-09-22 18:59:32', '2017-09-22 18:59:32'),
-	(40, '<p>HDYJGUKHILJOKMJL<br/></p>', 25, 2, '2017-09-22 18:59:33', '2017-09-22 18:59:33'),
-	(41, '<p>HDYJGUKHILJOKMJL<br/></p>', 26, 1, '2017-09-22 19:00:27', '2017-09-22 19:00:27'),
-	(42, '<p>HDYJGUKHILJOKMJL<br/></p>', 26, 2, '2017-09-22 19:00:27', '2017-09-22 19:00:27'),
-	(43, '<p>HDYJGUKHILJOKMJL<br/></p>', 27, 1, '2017-09-22 19:00:28', '2017-09-22 19:00:28'),
-	(44, '<p>HDYJGUKHILJOKMJL<br/></p>', 27, 2, '2017-09-22 19:00:28', '2017-09-22 19:00:28'),
-	(45, '<p>HDYJGUKHILJOKMJL<br/></p>', 28, 1, '2017-09-22 19:01:12', '2017-09-22 19:01:12'),
-	(46, '<p>HDYJGUKHILJOKMJL<br/></p>', 28, 2, '2017-09-22 19:01:12', '2017-09-22 19:01:12'),
-	(47, '<p>dfgchvjbknjhgfxdwgj<br/></p>', 29, 1, '2017-09-22 19:04:00', '2017-09-22 19:04:00'),
-	(48, '<p>dfgchvjbknjhgfxdwgj<br/></p>', 29, 2, '2017-09-22 19:04:00', '2017-09-22 19:04:00'),
-	(49, '<p>dfgchvjbknjhgfxdwgj<br/></p>', 30, 1, '2017-09-22 19:04:32', '2017-09-22 19:04:32'),
-	(50, '<p>dfgchvjbknjhgfxdwgj<br/></p>', 30, 2, '2017-09-22 19:04:32', '2017-09-22 19:04:32'),
-	(51, '<p>dfghf<br/></p>', 31, 1, '2017-09-22 19:18:57', '2017-09-22 19:18:57'),
-	(52, '<p>dfghf<br/></p>', 31, 2, '2017-09-22 19:18:57', '2017-09-22 19:18:57'),
-	(53, '<p>dfghf<br/></p>', 32, 1, '2017-09-22 19:19:53', '2017-09-22 19:19:53'),
-	(54, '<p>dfghf<br/></p>', 32, 2, '2017-09-22 19:19:54', '2017-09-22 19:19:54');
+	(57, '<blockquote><p>STARRRRRRFFFFFFFF<br/></p></blockquote>', 34, 1, '2017-10-23 07:58:57', '2017-10-23 07:58:57'),
+	(58, '/resources/img/articles/34/34.png', 34, 2, '2017-10-23 07:58:57', '2017-10-23 07:58:57');
 /*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 
 -- Export de la structure de la table lachinerie. section_types
@@ -479,9 +387,9 @@ CREATE TABLE IF NOT EXISTS `titres` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.titres : ~8 rows (environ)
+-- Export de données de la table lachinerie.titres : ~11 rows (environ)
 /*!40000 ALTER TABLE `titres` DISABLE KEYS */;
 INSERT INTO `titres` (`id`, `track_title`, `mp3_url`, `created_at`, `updated_at`) VALUES
 	(1, 'Dusty Space Jam', '', '2017-06-25 00:40:21', '2017-06-25 00:40:22'),
@@ -542,7 +450,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Export de données de la table lachinerie.users : ~3 rows (environ)
+-- Export de données de la table lachinerie.users : ~2 rows (environ)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `firstname`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'xNWiaYgWzd', 'MVkWprxm5i', 'test@gmail.com', '123456', 3, NULL, NULL, NULL),

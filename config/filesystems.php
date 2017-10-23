@@ -51,7 +51,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('../resources'),
-            'url' => '/resources/img/articles',
+            'url' => 'resources/img/articles',
             'visibility' => 'public',
         ],
 
