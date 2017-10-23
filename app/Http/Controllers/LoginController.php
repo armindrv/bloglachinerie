@@ -54,7 +54,7 @@ class LoginController extends Controller
                 ->select('categorie_users.categorie_id', 'categorie_users.user_id', 'users.role_id')
                 ->get();
 
-            return response()->json($data);
+           return response()->json($data);
 
         } else {
             return response()->json(false);
@@ -62,15 +62,15 @@ class LoginController extends Controller
     }
 
     public function getConnectedUser() {
-       
         if (Auth::check()) {
+            // On récupère l'id de l'utilisateur via la facade Auth
             $id = Auth::id();
-
-             $data = DB::table('users')
-            ->join('categorie_users', 'users.id', 'categorie_users.user_id')
-            ->where('categorie_users.user_id', $id)
-            ->select('categorie_users.categorie_id', 'categorie_users.user_id', 'users.role_id')
-            ->get();
+            // Récupération des données relatives à l'utilisateurs
+            $data = DB::table('users')
+                ->join('categorie_users', 'users.id', 'categorie_users.user_id')
+                ->where('categorie_users.user_id', $id)
+                ->select('categorie_users.categorie_id', 'categorie_users.user_id', 'users.role_id')
+                ->get();
 
         return response()->json($data);
 
