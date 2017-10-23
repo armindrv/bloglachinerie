@@ -141,12 +141,19 @@ function authService($http,$state){
     var authService = {};
 
     authService.logged = false;
-
     authService.userData = null;
 
+
+    authService.getUserData = function(){
+        return $http.get("get_user");
+    }
+
+
     authService.logout = function(){
+        console.log("logout");
         authService.logged = false;
         authService.userData = null;
+        $http.get("logout_user");
         $state.go('menu.home')
     }
 

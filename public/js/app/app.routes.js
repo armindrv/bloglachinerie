@@ -10,8 +10,25 @@ function ($stateProvider,$urlRouterProvider,$locationProvider){
             templateUrl : 'public/js/app/components/menu/menu.html',
             controller : 'menuCtrl as menu',
             resolve: {
+
+                // return authService.getUserData()
+                //     .then(function(response){
+                //         if(response != false){
+                //             console.log(response);
+                //             authService.logged = true;
+                //             authService.userData = response.data;
+                //         }
+                // })
                 authService : function(authService){
-                    return authService;
+                    return authService.getUserData()
+                        .then(function(response){
+                            if(response.data != false){
+                                authService.logged = true;
+                                authService.userData = response.data;
+                            }
+                            return authService;
+                    })
+
                 },
                 sceneCategories : function(menuService){
                     return  menuService.getCategoriesScene()

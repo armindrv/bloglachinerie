@@ -13,6 +13,8 @@
 
 <div class="row article-content">
     <div class="col-xs-12">
-        <p class="article-paragrtaph">{{article.articleData.content}}</p>
+        <ng-bind-html
+            ng-bind-html="article.articleData.content">
+        </ng-bind-html>
     </div>
 </div>
